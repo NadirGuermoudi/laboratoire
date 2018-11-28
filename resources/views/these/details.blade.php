@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
- @section('title','LRI | Détails thèse')
+@section('title','LRI | Détails thèse')
 
 @section('header_page')
     <h1>
