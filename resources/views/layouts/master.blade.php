@@ -59,7 +59,7 @@
 
   <header class="main-header" style="position: fixed; width: 100%">
     <!-- Logo -->
-    <a href="dashboard.php" class="logo">
+    <a href="{{url('/home')}}" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><img src="{{asset($labo->logo)}}" style="width: 50px"></span>
       <!-- logo for regular state and mobile devices -->
