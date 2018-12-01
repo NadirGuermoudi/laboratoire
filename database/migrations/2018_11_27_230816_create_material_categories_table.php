@@ -14,9 +14,9 @@ class CreateMaterialCategoriesTable extends Migration
     public function up()
     {
         Schema::create('material_categories', function (Blueprint $table) {
-            $table->string('name');
+            $table->string('name',50);
             $table->timestamps();
-            
+
             $table->primary('name');
         });
     }

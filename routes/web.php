@@ -18,6 +18,10 @@ use Illuminate\Support\Facades\Input;
 */
 
 Route::get('/', function () {
+    return view('layouts/front/master');
+});
+
+Route::get('/login', function () {
     return view('auth/login');
 });
 
