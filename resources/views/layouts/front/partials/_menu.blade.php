@@ -8,13 +8,14 @@
       <!-- menu logo -->
       <ul class="menu-logo">
           <li>
-              <a href="index.php"><img id="logo_img" src="easy.png" alt="logo"> </a>
+              <a href="{{url('/')}}"><img id="logo_img" src="{{asset('easy.png')}}" alt="logo"> </a>
           </li>
       </ul>
       <!-- menu links -->
       <div class="menu-bar">
        <ul class="menu-links">
-          <li class="active"><a href="javascript:void(0)">Home <i class="fa fa-indicator"></i></a></li>
+          <li class="active"><a href="{{url('/')}}">Home <i class="fa fa-indicator"></i></a></li>
+
           <li><a href="javascript:void(0)"> Equipes <i class="fa fa-angle-down fa-indicator"></i></a>
                <!-- drop down multilevel  -->
               <ul class="drop-down-multilevel">
@@ -24,6 +25,9 @@
                   <li><a href="javascript:void(0)">Equipe 04<i class="fa-indicator"></i></a></li>
               </ul>
           </li>
+
+
+           <li><a href="{{url('/front/membres')}}">membres <i class="fa fa-indicator"></i></a></li>
           <li><a href="projets.php">Projets <i class="fa fa-indicator"></i></a></li>
           <li><a href="contact.php">Contact <i class="fa fa-indicator"></i></a></li>
           <li><a href="apropos.php">A Propos <i class="fa fa-indicator"></i></a></li>

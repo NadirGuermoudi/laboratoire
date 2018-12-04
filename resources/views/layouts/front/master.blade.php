@@ -47,9 +47,10 @@
             <header id="header" class="header transparent">
                 @include('layouts/front/partials/_topbar')
                 @include('layouts/front/partials/_menu')
+                @yield('header')
             </header>
             <br/><br/><br/><br/><br/><br/><br/>
-            @yield('content', 'pas de contenue')
+            @yield('content')
 
         </div>
         <div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-angle-up"></i> <span>TOP</span></a></div>

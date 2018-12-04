@@ -17,13 +17,20 @@ use Illuminate\Support\Facades\Input;
 |
 */
 
+//front office
 Route::get('/', function () {
-    return view('layouts/front/master');
+    return view('front/index');
 });
+
+Route::get('/front/membres','front\MembreController@index');
+
+
+//backoffice
 
 Route::get('/login', function () {
     return view('auth/login');
 });
+
 
 
 
