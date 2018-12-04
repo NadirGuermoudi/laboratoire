@@ -18,22 +18,22 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800">
 
         <!-- Plugins -->
-        <link rel="stylesheet" type="text/css" href="css/plugins-css.css" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/plugins-css.css') }}" />
 
         <!-- revoluation -->
-        <link rel="stylesheet" type="text/css" href="css/settings.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/settings.css') }}" media="screen" />
 
         <!-- Typography -->
-        <link rel="stylesheet" type="text/css" href="css/typography.css" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/typography.css') }}" />
 
         <!-- Shortcodes -->
-        <link rel="stylesheet" type="text/css" href="css/shortcodes/shortcodes.css" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/shortcodes/shortcodes.css') }}" />
 
         <!-- Style -->
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" />
 
         <!-- Responsive -->
-        <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/responsive.css') }}" />
     </head>
 
     <body>
@@ -58,24 +58,24 @@
          jquery -->
 
         <!-- jquery -->
-        <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery-1.12.4.min.js') }}"></script>
 
         <!-- plugins-jquery -->
-        <script type="text/javascript" src="js/plugins-jquery.js"></script>
+        <script type="text/javascript" src="{{ asset('js/plugins-jquery.js') }}"></script>
 
         <!-- plugin_path -->
         <script type="text/javascript">var plugin_path = 'js/';</script>
          
 
         <!-- REVOLUTION JS FILES -->
-        <script type="text/javascript" src="revolution/js/jquery.themepunch.tools.min.js"></script>
-        <script type="text/javascript" src="revolution/js/jquery.themepunch.revolution.min.js"></script>
+        <script type="text/javascript" src="{{ asset('revolution/js/jquery.themepunch.tools.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('revolution/js/jquery.themepunch.revolution.min.js') }}"></script>
 
         <!-- revolution custom --> 
-        <script type="text/javascript" src="revolution/js/revolution-custom.js"></script> 
+        <script type="text/javascript" src="{{ asset('revolution/js/revolution-custom.js') }}"></script> 
 
         <!-- custom -->
-        <script type="text/javascript" src="js/revolution/custom.js"></script>
+        <script type="text/javascript" src="{{ asset('js/revolution/custom.js') }}"></script>
 
     </body>
 </html>
