@@ -19,5 +19,4 @@ class Equipe extends Model
     {
     	return $this->hasMany('App\User');
     }
-
 }

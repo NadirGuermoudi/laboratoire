@@ -31,9 +31,6 @@ Route::get('/login', function () {
     return view('auth/login');
 });
 
-
-
-
 Route::get('dashboard','dashController@index');
 Route::get('parametre','ParametreController@create');
 Route::post('parametre','ParametreController@store');
@@ -136,7 +133,6 @@ Route::any('/search',function(){
             'projets' => $projets,
             'equipes' => $equipes,
             'labo'=>$labo,
-            
-        ]);;
-
+        ]);
 });
+
