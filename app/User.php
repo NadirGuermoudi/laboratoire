@@ -28,6 +28,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function materials(){
+        return $this->belongsToMany('App\Material', 'user_material');
+    }
+
     public function these()
     {
         return $this->hasOne('App\These');

@@ -193,27 +193,27 @@
             <span>Projets</span>
           </a>
         </li>
+
+        <li @if($active == 'materials')  class="active" @endif >
+        <a href="{{route('materials.index')}}">
+          <i class="fa fa-shopping-cart"></i>
+          <span>Matériels</span></a>
+        </li>
         
-          @if(Auth::user()->role->nom == 'admin' )
+        @if(Auth::user()->role->nom == 'admin' )
+        <li @if($active == 'partenaires')  class="active" @endif >
+        <a href="{{url('parametre')}}">
+          <i class="fa fa-handshake-o"></i>
+          <span>Partenaires</span></a>
+        </li>
 
-          <li @if($active == 'partenaires')  class="active" @endif >
-          <a href="{{url('parametre')}}">
-            <i class="fa fa-user"></i>
-            <span>Partenaires</span></a>
-          </li>
-
-          <li @if($active == 'materials')  class="active" @endif >
-          <a href="{{url('parametre')}}">
-            <i class="fa fa-shopping-cart"></i>
-            <span>Matériels</span></a>
-          </li>
-
-          <li @if($active == 'parametre')  class="active" @endif >
-          <a href="{{url('parametre')}}">
-            <i class="fa fa-gears"></i> 
-            <span>Paramètre</span></a>
-          </li>
-          @endif
+        <li @if($active == 'parametre')  class="active" @endif >
+        <a href="{{url('parametre')}}">
+          <i class="fa fa-gears"></i>
+          <span>Paramètre</span></a>
+        </li>
+        @endif
+        
       </ul>
     </section>
     <!-- /.sidebar -->

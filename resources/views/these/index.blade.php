@@ -121,9 +121,7 @@
             </div>
             <!-- /.box-body -->
           </div>
-        
       </div>
-      
     </div>
     
  @endsection

@@ -17,7 +17,7 @@ class CreateContactsTable extends Migration
             $table->increments('id');
             $table->string('nom',50);
             $table->string('prenom',50);
-            $table->integer('partenaire')->unsigned();
+            $table->integer('partenaire_id')->unsigned();
             $table->string('fonction');
             $table->string('pays',50);
             $table->string('ville',50);
@@ -26,7 +26,7 @@ class CreateContactsTable extends Migration
             $table->timestamps();
 
             $table->unique('nom', 'prenom');
-            $table->foreign('partenaire')->references('id')->on('partenaires');
+            $table->foreign('partenaire_id')->references('id')->on('partenaires');
         });
     }
 

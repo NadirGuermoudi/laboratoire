@@ -10,7 +10,11 @@ class Equipe extends Model
 
     protected $dates = ['deleted_at'];
 
-   public function chef()
+    public function materials(){
+        return $this->belongsToMany('App\Material', 'equipe_material');
+    }
+
+    public function chef()
     {
         return $this->belongsTo('App\User');
     }
