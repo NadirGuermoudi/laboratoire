@@ -8,32 +8,34 @@
         <meta name="author" content="NHB" />
         <link rel="icon" type="image/png" href="{{asset('easy.png')}}"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        <title>{{ $title or 'Laboratoire de recherche' }}</title>
+        <title>@yield('title')</title>
 
         <!-- Favicon -->
         {{-- <link rel="shortcut icon" href="images/favicon.ico" /> --}}
 
         <!-- font -->
-        <link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,500,500i,600,700,800,900|Poppins:200,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800">
+        <link  rel="stylesheet" href="{{asset('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,500,500i,600,700,800,900|Poppins:200,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900')}}">
+        <link rel="stylesheet" href="{{asset('https://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800')}}">
+
+        <link rel="stylesheet" type="text/css" href="{{asset('css/plugins-css.css')}}" />
 
         <!-- Plugins -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/plugins-css.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{asset('css/plugins-css.css')}}" />
 
         <!-- revoluation -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/settings.css') }}" media="screen" />
+        <link rel="stylesheet" type="text/css" href="{{asset('css/settings.css')}}" media="screen" />
 
         <!-- Typography -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/typography.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{asset('css/typography.css')}}" />
 
         <!-- Shortcodes -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/shortcodes/shortcodes.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{asset('css/shortcodes/shortcodes.css')}}" />
 
         <!-- Style -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}" />
 
         <!-- Responsive -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/responsive.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{asset('css/responsive.css')}}" />
     </head>
 
     <body>
@@ -53,7 +55,7 @@
             @yield('content')
 
         </div>
-        <div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-angle-up"></i> <span>TOP</span></a></div>
+        <div id="back-to-top"><a class="top arrow" href="{{asset('#top')}}"><i class="fa fa-angle-up"></i> <span>TOP</span></a></div>
 
         <!--=================================
          jquery -->
@@ -73,7 +75,7 @@
         <script type="text/javascript" src="{{ asset('revolution/js/jquery.themepunch.revolution.min.js') }}"></script>
 
         <!-- revolution custom --> 
-        <script type="text/javascript" src="{{ asset('revolution/js/revolution-custom.js') }}"></script> 
+        <script type="text/javascript" src="{{ asset('revolution/js/revolution-custom.js') }}"></script>
 
         <!-- custom -->
         <script type="text/javascript" src="{{ asset('js/revolution/custom.js') }}"></script>
