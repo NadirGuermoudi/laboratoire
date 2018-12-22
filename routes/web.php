@@ -23,6 +23,10 @@ Route::get('/', function () {
 });
 
 Route::get('/front/membres','front\MembreController@index');
+Route::get('/front/membres/{id}/details','front\MembreController@details');
+
+Route::get('/front/equipes','front\EquipeController@index');
+Route::get('/front/equipes/{id}/details','front\EquipeController@details');
 
 
 //backoffice
