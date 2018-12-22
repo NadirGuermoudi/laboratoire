@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserHasMaterialsTable extends Migration
+class CreateEquipeMaterialTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreateUserHasMaterialsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_has_materials', function (Blueprint $table) {
+        Schema::create('equipe_material', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('material')->unsigned();
-            $table->integer('user')->unsigned();
+            $table->integer('material_id')->unsigned();
+            $table->integer('equipe_id')->unsigned();
             $table->dateTime('date_emprunt');
             $table->dateTime('date_rendre');
             $table->dateTime('date_rendement')->nullable();
 
-            $table->foreign('material')->references('id')->on('materials');
-            $table->foreign('user')->references('id')->on('users');
+            $table->foreign('material_id')->references('id')->on('materials')->onDelete('cascade');
+            $table->foreign('equipe_id')->references('id')->on('equipes')->onDelete('cascade');
         });
     }
 
@@ -33,6 +33,6 @@ class CreateUserHasMaterialsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_has_materials');
+        Schema::dropIfExists('equipe_material');
     }
 }

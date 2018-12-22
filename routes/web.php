@@ -35,10 +35,17 @@ Route::get('/login', function () {
     return view('auth/login');
 });
 
-
-
-
-Route::get('dashboard','dashController@index');
+//nouv
+Route::get('materials/category', 'MaterialsController@category')->name('materials.category');
+Route::post('materials/category', 'MaterialsController@addCategory')->name('materials.addCategory');
+Route::get('materials/borrow', 'MaterialsController@borrow')->name('materials.borrow');
+Route::post('materials/borrow', 'MaterialsController@borrowing')->name('materials.borrowing');
+Route::get('materials/borrowed', 'MaterialsController@borrowed')->name('materials.borrowed');
+Route::get('materials/history/{id}', 'MaterialsController@history')->name('materials.history');
+Route::put('materials/return/{id}', 'MaterialsController@return')->name('materials.return');
+Route::resource('materials', 'MaterialsController');
+//fin nouv
+Route::get('dashboard','dashController@index')->name('dashboard');
 Route::get('parametre','ParametreController@create');
 Route::post('parametre','ParametreController@store');
 
@@ -140,7 +147,6 @@ Route::any('/search',function(){
             'projets' => $projets,
             'equipes' => $equipes,
             'labo'=>$labo,
-            
-        ]);;
-
+        ]);
 });
+

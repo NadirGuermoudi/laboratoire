@@ -121,7 +121,7 @@
   <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar" style="position: fixed;">
     <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar" style="padding-top: 50px;">
+    <section class="sidebar">
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
@@ -148,7 +148,72 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
 
       <ul class="sidebar-menu" data-widget="tree">
-        @yield('asidebar')
+        {{-- @yield('asidebar') --}}
+        <li class="@if($active == 'dashboard')  active @endif" >
+          <a href="{{url('dashboard')}}">
+            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+          </a>
+        </li>
+
+        <li @if($active == 'equipes') class="active" @endif">
+          <a href="{{url('equipes')}}">
+            <i class="fa fa-group"></i> 
+            <span>Equipes</span>
+          </a>
+        </li>
+        
+        <li class="treeview @if($active == 'membres')  active @endif">
+          <a href="#">
+            <i class="fa fa-user"></i> <span>Membres</span>
+            <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{url('trombinoscope')}}"><i class="fa fa-id-badge"></i> Trombinoscope</a></li>
+            <li><a href="{{url('membres')}}"><i class="fa fa-list"></i> Liste</a></li>
+          </ul>
+        </li>
+        <li @if($active == 'theses')  class="active" @endif>
+          <a href="{{url('theses')}}">
+            <i class="fa fa-file-pdf-o"></i> 
+            <span>Thèses</span>
+          </a>
+        </li>
+
+        <li @if($active == 'articles')  class="active" @endif>
+          <a href="{{url('articles')}}">
+            <i class="fa fa-newspaper-o"></i> 
+            <span>Articles</span></a>
+          </li>
+        
+        <li @if($active == 'projects')  class="active" @endif >
+          <a href="{{url('projets')}}">
+            <i class="fa fa-folder-open-o"></i> 
+            <span>Projets</span>
+          </a>
+        </li>
+
+        <li @if($active == 'materials')  class="active" @endif >
+        <a href="{{route('materials.index')}}">
+          <i class="fa fa-shopping-cart"></i>
+          <span>Matériels</span></a>
+        </li>
+        
+        @if(Auth::user()->role->nom == 'admin' )
+        <li @if($active == 'partenaires')  class="active" @endif >
+        <a href="{{url('parametre')}}">
+          <i class="fa fa-handshake-o"></i>
+          <span>Partenaires</span></a>
+        </li>
+
+        <li @if($active == 'parametre')  class="active" @endif >
+        <a href="{{url('parametre')}}">
+          <i class="fa fa-gears"></i>
+          <span>Paramètre</span></a>
+        </li>
+        @endif
+        
       </ul>
     </section>
     <!-- /.sidebar -->

@@ -17,6 +17,8 @@ class CreateMaterialsTable extends Migration
             $table->increments('id');
             $table->string('numero',50);
             $table->string('category',50);
+            $table->integer('prix')->unsigned()->default(0);
+            $table->boolean('empruntable')->default(true);
 
             $table->timestamps();
             $table->foreign('category')->references('name')->on('material_categories');
