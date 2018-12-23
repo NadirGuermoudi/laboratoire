@@ -1,4 +1,4 @@
-@extends('../../layouts.front.master', ['active' => 'equipes'])
+@extends('layouts.front.master')
 @section('title')
     Equipes
 @stop
@@ -10,8 +10,8 @@
 @section('content')
 
     <div class="row">
-        <div class="col-12">
-            <div class="box col-12">
+        <div class="col-xs-12">
+            <div class="box col-xs-12">
                 <div class="container" style="padding-top: 30px ">
                     <div class="row">
                         <h2 class="theme-color text-center">Liste des equipes du laboratoire</h2>
@@ -19,7 +19,7 @@
                     </div>
                 </div>
 
-                <div class="col-12" style="height:50px;"></div>
+                <div class="col-xs-12" style="height:50px;"></div>
 
                 <!-- /.box-header -->
                 <div class="box-header">

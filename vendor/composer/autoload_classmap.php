@@ -31,6 +31,7 @@ return array(
     'App\\Http\\Controllers\\dashController' => $baseDir . '/app/Http/Controllers/dashController.php',
     'App\\Http\\Controllers\\front\\EquipeController' => $baseDir . '/app/Http/Controllers/front/EquipeController.php',
     'App\\Http\\Controllers\\front\\MembreController' => $baseDir . '/app/Http/Controllers/front/MembreController.php',
+    'App\\Http\\Controllers\\front\\ProjetController' => $baseDir . '/app/Http/Controllers/front/ProjetController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
     'App\\Http\\Middleware\\RedirectIfAuthenticated' => $baseDir . '/app/Http/Middleware/RedirectIfAuthenticated.php',

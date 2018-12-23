@@ -354,6 +354,7 @@ class ComposerStaticInitc4a3b668e15bc31216c179cbf4f6f57d
         'App\\Http\\Controllers\\dashController' => __DIR__ . '/../..' . '/app/Http/Controllers/dashController.php',
         'App\\Http\\Controllers\\front\\EquipeController' => __DIR__ . '/../..' . '/app/Http/Controllers/front/EquipeController.php',
         'App\\Http\\Controllers\\front\\MembreController' => __DIR__ . '/../..' . '/app/Http/Controllers/front/MembreController.php',
+        'App\\Http\\Controllers\\front\\ProjetController' => __DIR__ . '/../..' . '/app/Http/Controllers/front/ProjetController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
