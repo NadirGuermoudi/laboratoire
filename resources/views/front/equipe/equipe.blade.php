@@ -1,4 +1,4 @@
-@extends('layouts.front.master')
+@extends('../../layouts.front.master', ['active' => 'equipes'])
 @section('title')
     Equipes
 @stop
