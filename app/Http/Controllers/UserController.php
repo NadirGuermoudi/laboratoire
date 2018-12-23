@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\support\Facades\DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use App\Http\Requests\userRequest;

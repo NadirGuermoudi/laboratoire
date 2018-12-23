@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\Input;
 |
 */
 
-//front office
 Route::get('/', function () {
     return view('front/index');
 })->name('home_path');
@@ -149,4 +148,13 @@ Route::any('/search',function(){
             'labo'=>$labo,
         ]);
 });
+
+/* routes faits par ibrahim sebbane */
+
+Route::get('/front/projets', [
+
+	'as' => 'projets-front'	,
+	'uses' => 'front\ProjetController@index'
+
+]);
 
