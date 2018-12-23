@@ -1,4 +1,4 @@
-@extends('../../layouts.front.master', ['active' => 'equipes'])
+@extends('layouts.front.master')
 @section('title')
     Equipes
 @stop
@@ -14,7 +14,7 @@
             <div class="box col-xs-12">
                 <div class="container" style="padding-top: 30px ">
                     <div class="row">
-                        <h2 class="theme-color text-center">Liste des membres du laboratoire</h2>
+                        <h2 class="theme-color text-center">Liste des equipes du laboratoire</h2>
 
                     </div>
                 </div>
@@ -27,14 +27,14 @@
 
                     <div class="row">
                         @foreach($equipes as $equipe)
-                        <div class="col-xs-12 col-md-6">
+                        <div class="col-12 col-md-6">
 
 
 
-                                <div class="col-xs-12 col-md-12" style="padding-right: 30px;padding-bottom: 30px;">
+                                <div class="col-12 col-md-12" style="padding-right: 30px;padding-bottom: 30px;">
                                     <div class="box box-widget widget-user ">
                                         <div class="row panel panel-success">
-                                            <div class="col-xs-12 text-center panel-heading">
+                                            <div class="col-12 text-center panel-heading">
                                                 <div class="widget-user-header bg-dark text-center">
                                                     <a class="users-list-name1"
                                                        href="{{ url('/front/equipes/'.$equipe->id.'/details')}}"><h5
@@ -42,9 +42,9 @@
                                                     </a>
                                                 </div>
                                             </div>
-                                            <div class="col-xs-12" style="height: 20px;"></div>
+                                            <div class="col-12" style="height: 20px;"></div>
 
-                                            <div class="col-xs-pull-12" align="center">
+                                            <div class="col-12" align="center">
                                                 <h5 class="description-header">Chef d'équipe</h5>
                                                 <div class="widget-user-image text-center">
                                                     <img style="height: 80px;width: 80px;"
@@ -64,7 +64,7 @@
                                             </div>
                                             @foreach($nbr as $nbrs)
                                                 @if($nbrs->equipe_id == $equipe->id)
-                                                    <div class="col-xs-9 pull-right">
+                                                    <div class="col-9 pull-right">
                                                         <div class="description-block text-center pull-right ">
                                                             <h5 class="description-header">
 

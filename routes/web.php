@@ -16,17 +16,25 @@ use Illuminate\Support\Facades\Input;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//frontoffice
+/* routes faits par ibrahim sebbane */
 
-//front office
+Route::get('/front/projets', [
+
+    'as' => 'projets-front'	,
+    'uses' => 'front\ProjetController@index'
+
+]);
+//route faites par hz
+
 Route::get('/', function () {
-	$active="home";
-    return view('front/index')->with(['active'=>$active]);
-});
+    return view('front/index');
+})->name('home_path');
 
-Route::get('/front/membres','front\MembreController@index');
+Route::get('/front/membres','front\MembreController@index')->name('membres_path');
 Route::get('/front/membres/{id}/details','front\MembreController@details');
 
-Route::get('/front/equipes','front\EquipeController@index');
+Route::get('/front/equipes','front\EquipeController@index')->name('equipes_path');
 Route::get('/front/equipes/{id}/details','front\EquipeController@details');
 
 
@@ -151,12 +159,4 @@ Route::any('/search',function(){
         ]);
 });
 
-/* routes faits par ibrahim sebbane */
-
-Route::get('/front/projets', [
-
-	'as' => 'projets-front'	,
-	'uses' => 'front\ProjetController@index'
-
-]);
 

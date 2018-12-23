@@ -15,19 +15,19 @@
                         <div class="menu-bar">
                             <ul class="menu-links">
 
-                                <li id="Home"  @if($active == 'home') class="active" @endif ><a tab-toggle="tab" href="{{url('/')}}">Home<i
+                                <li class="{{ set_active_route('home_path') }}"><a tab-toggle="tab" href="{{route("home_path")}}">Home<i
                                                 class="fa fa-indicator"></i></a></li>
-                                <li id="equipes"@if($active == 'equipes') class="active" @endif><a tab-toggle="tab" href="{{url('/front/equipes')}}">equipes<i
+                                <li class="{{ set_active_route('equipes_path') }}"><a tab-toggle="tab" href="{{route('equipes_path')}}">equipes<i
                                                 class="fa fa-indicator"></i></a></li>
-                                <li id="membres" @if($active == 'membres') class="active" @endif><a tab-toggle="tab" href="{{url('front/membres')}}">membres<i
+                                <li class="{{ set_active_route('membres_path') }}"><a  tab-toggle="tab" href="{{route('membres_path')}}">membres<i
                                                 class="fa fa-indicator"></i></a></li>
-                                <li id="projets" @if($active == 'projets') class="active" @endif><a href="{{route('projets-front')}}">Projets<i
+                                <li class="{{ set_active_route('projets-front') }}"><a href="{{route('projets-front')}}">Projets<i
                                                 class="fa fa-indicator"></i></a></li>
-                                <li id="theses" @if($active == 'theses') class="active" @endif ><a href="{{url('/front/equipes')}}">theses<i
+                                <li id="theses"><a href="{{url('/front/equipes')}}">theses<i
                                                 class="fa fa-indicator"></i></a></li>
-                                <li id="contact" @if($active == 'contact') class="active" @endif ><a href="{{url('front/contact')}}">Contact<i
+                                <li id="contact"><a href="{{url('front/contact')}}">Contact<i
                                                 class="fa fa-indicator"></i></a></li>
-                                <li id="apropos" @if($active == 'apropos') class="active" @endif ><a href="{{url('front/apropos')}}">A Propos <i
+                                <li id="apropos"><a href="{{url('front/apropos')}}">A Propos <i
                                                 class="fa fa-indicator"></i></a></li>
                                 <li>
                                     <div class="search">
