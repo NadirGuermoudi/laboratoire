@@ -20,12 +20,12 @@ use Illuminate\Support\Facades\Input;
 //front office
 Route::get('/', function () {
     return view('front/index');
-});
+})->name('home_path');
 
-Route::get('/front/membres','front\MembreController@index');
+Route::get('/front/membres','front\MembreController@index')->name('membres_path');
 Route::get('/front/membres/{id}/details','front\MembreController@details');
 
-Route::get('/front/equipes','front\EquipeController@index');
+Route::get('/front/equipes','front\EquipeController@index')->name('equipes_path');
 Route::get('/front/equipes/{id}/details','front\EquipeController@details');
 
 

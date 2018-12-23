@@ -15,11 +15,11 @@
                         <div class="menu-bar">
                             <ul class="menu-links">
 
-                                <li id="Home" class="active"><a tab-toggle="tab" href="{{url('/')}}">Home<i
+                                <li class="{{ set_active_route('home_path') }}"><a tab-toggle="tab" href="{{route("home_path")}}">Home<i
                                                 class="fa fa-indicator"></i></a></li>
-                                <li id="equipes"><a tab-toggle="tab" href="{{url('/front/equipes')}}">equipes<i
+                                <li class="{{ set_active_route('equipes_path') }}"><a tab-toggle="tab" href="{{route('equipes_path')}}">equipes<i
                                                 class="fa fa-indicator"></i></a></li>
-                                <li id="membres"><a tab-toggle="tab" href="{{url('front/membres')}}">membres<i
+                                <li class="{{ set_active_route('membres_path') }}"><a tab-toggle="tab" href="{{route('membres_path')}}">membres<i
                                                 class="fa fa-indicator"></i></a></li>
                                 <li id="projets"><a href="{{url('front/projets')}}">Projets<i
                                                 class="fa fa-indicator"></i></a></li>
