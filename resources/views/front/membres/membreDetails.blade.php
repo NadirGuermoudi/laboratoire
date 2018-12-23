@@ -1,4 +1,4 @@
-@extends('layouts.front.master')
+@extends('../../layouts.front.master', ['active' => 'membres'])
 
 @section('title')
     Details {{$membre->name}}

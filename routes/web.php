@@ -19,7 +19,8 @@ use Illuminate\Support\Facades\Input;
 
 //front office
 Route::get('/', function () {
-    return view('front/index');
+	$active="home";
+    return view('front/index')->with(['active'=>$active]);
 });
 
 Route::get('/front/membres','front\MembreController@index');
@@ -149,4 +150,13 @@ Route::any('/search',function(){
             'labo'=>$labo,
         ]);
 });
+
+/* routes faits par ibrahim sebbane */
+
+Route::get('/front/projets', [
+
+	'as' => 'projets-front'	,
+	'uses' => 'front\ProjetController@index'
+
+]);
 

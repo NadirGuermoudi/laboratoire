@@ -5,7 +5,7 @@ namespace App\Http\Controllers\front;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\equipeRequest;
-use Illuminate\support\Facades\DB;
+use Illuminate\Support\Facades\DB;
 use App\Parametre;
 use App\Equipe;
 use App\User;
