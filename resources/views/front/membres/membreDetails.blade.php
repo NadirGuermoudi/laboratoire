@@ -1,8 +1,6 @@
 @extends('../../layouts.front.master', ['active' => 'membres'])
 
-@section('title')
-    Details {{$membre->name}}
-@stop
+@section('title','LRI | details des membres')
 
 @section('header')
     <div class="col-lg-12">
@@ -26,27 +24,28 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-3 sm-mb-30">
-                    <img style="height: 200px;width: 200px;" class="img-responsive img-circle" src="{{asset($membre->photo)}}" alt="">
+                    <img style="height: 200px;width: 200px;" class="img-responsive rounded-circle" src="{{asset($membre->photo)}}" alt="">
                 </div>
                 <div class="col-lg-9 col-md-9">
                     <div class="team-details">
                         <div class="clearfix">
-                            <div class="title pull-left mb-20">
+                            <div class="title float-left mb-20">
                                 <h3 class=""><a>{{$membre->name}} {{$membre->prenom}}</a></h3>
                                 <span class="">Grade : {{$membre->grade}}</span>
                             </div>
-                            <div class="social-icons border color-hover pull-right mt-10">
+                            <div class="social-icons border color-hover float-right mt-10">
                                 <ul>
                                     <li class="social-linkedin"><a href="{{$membre->lien_linkedin}}"><i class="fa fa-linkedin"></i> </a></li>
                                 </ul>
                             </div>
                         </div>
 
-                        <div class="nav-tabs-custom">
-                            <ul class="nav nav-tabs">
-                                <li class="active"><a href="#activity" data-toggle="tab">A propos</a></li>
-                                <li><a href="#timeline" data-toggle="tab">Articles</a></li>
-                            </ul>
+                        <ul class="nav nav-tabs">
+                            <li class="active nav-item"><a href="#activity" data-toggle="tab" class="nav-link">A propos</a>
+                            </li>
+                            <li class="nav-item"><a href="#timeline" data-toggle="tab" class="nav-link">Articles</a>
+                            </li>
+                        </ul>
 
                             <div class="tab-content">
                                 <div class="active tab-pane" id="activity">

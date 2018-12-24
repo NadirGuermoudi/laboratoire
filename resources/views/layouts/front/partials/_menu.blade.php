@@ -4,7 +4,7 @@
         <section class="menu-list-items">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-12 col-lg-12 col-md-12">
+                    <div class="col-12 col-lg-12 col-md-12">
                         <!-- menu logo -->
                         <ul class="menu-logo">
                             <li>

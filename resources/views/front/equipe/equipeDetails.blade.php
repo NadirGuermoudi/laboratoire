@@ -1,29 +1,28 @@
 @extends('layouts.front.master')
-@section('title')
-    Details de l'equipe
-@stop
+
+@section('title',"LRI | Details de l'equipe")
 
 @section('header')
 
 @stop
 
 @section('content')
-    <div class="col-xs-12">
+    <div class="col-12">
         <div class="container">
             <div class="row">
 
 
-                <div class="col-xs-12">
+                <div class="col-12">
                     <h3 class="theme-color text-center">Details {{$equipe->intitule}}</h3>
                 </div>
 
 
-                <div class="col-xs-12" style="height:50px;"></div>
-                <div class="col-xs-6 col-sm-6 col-md-6 col-xl-6">
+                <div class="col-12" style="height:50px;"></div>
+                <div class="col-12 col-sm-6 col-md-6 col-xl-6">
                     <!-- USERS LIST -->
 
 
-                    <div class="col-xs-12 col-sm-12 text-center">
+                    <div class="col-12 col-sm-12 text-center">
                         <div class="section-title">
                             <h5 class="title-effect"><a>Membres de l'équipe</a></h5>
                         </div>
@@ -35,7 +34,7 @@
 
                             @foreach($membres as $membre)
                                 @if($membre->name != 'Admin' || is_null($membre->equipe_id))
-                                    <div class="col-xs-6">
+                                    <div class="col-6 col-sm-6 col-md-4">
                                         <div class="team team-round ">
 
                                             <div class="team-photo">
@@ -65,9 +64,9 @@
                     </div>
                 </div>
 
-                <div class="col-xs-6">
+                <div class="col-12 col-md-6">
 
-                    <div class="col-xs-12">
+                    <div class="col-12">
                         <h5><a>Chef d'équipe</a></h5>
                         <div class="description-block">
                 <span class="description-text theme-color"><a
@@ -77,7 +76,7 @@
                     </div>
 
 
-                    <div class="col-xs-12">
+                    <div class="col-12">
 
                         <h5 class="timeline-header"><a>Résumé</a></h5>
 
