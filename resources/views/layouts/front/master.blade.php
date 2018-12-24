@@ -67,8 +67,7 @@
         <script type="text/javascript" src="{{ asset('js/plugins-jquery.js') }}"></script>
 
         <!-- plugin_path -->
-        <script type="text/javascript">var plugin_path = 'js/';</script>
-         
+        <script type="text/javascript">var plugin_path = '{{url('/')}}/js/';</script>
 
         <!-- REVOLUTION JS FILES -->
         <script type="text/javascript" src="{{ asset('revolution/js/jquery.themepunch.tools.min.js') }}"></script>
