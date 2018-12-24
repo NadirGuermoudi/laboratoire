@@ -1,4 +1,4 @@
-@extends('../../layouts.front.master', ['active' => 'projets'])
+@extends('../../layouts.front.master')
 
 @section('title','LRI | Liste des projets')
 
