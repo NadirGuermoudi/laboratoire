@@ -1,8 +1,6 @@
 @extends('../layouts.front.master', ['active' => 'membres'])
 
-@section('title')
-    Membres
-@stop
+@section('title','LRI | Liste des memebres')
 
 @section('header')
     <style>
@@ -11,12 +9,10 @@
 
 @stop
 @section('content')
-    <div class="col-lg-8 col-md-8 col-md-offset-2" style="padding-top: 50px">
-        <div class="section-title text-center">
-            <h2 class="theme-color">Liste des membres du laboratoire</h2>
-        </div>
+    <div class="col-12">
+        <h2 class="theme-color text-center">Liste Des Membres Du Laboratoire</h2>
     </div>
-    <div class="col-xs-12" style="height: 50px">
+    <div class="col-12" style="height: 50px">
 
     </div>
 

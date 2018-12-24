@@ -1,7 +1,6 @@
 @extends('layouts.front.master')
-@section('title')
-    Equipes
-@stop
+
+@section('title','LRI | Liste des equipes')
 
 @section('header')
 
@@ -10,19 +9,16 @@
 @section('content')
 
     <div class="row">
-        <div class="col-xs-12">
-            <div class="box col-xs-12">
-                <div class="container" style="padding-top: 30px ">
-                    <div class="row">
-                        <h2 class="theme-color text-center">Liste des equipes du laboratoire</h2>
-
-                    </div>
+        <div class="col-12">
+            <div class="col-12 ">
+                <div class="col-12">
+                    <h2 class="theme-color text-center">Liste Des Equipes Du Laboratoire</h2>
                 </div>
 
-                <div class="col-xs-12" style="height:50px;"></div>
+                <div class="col-12" style="height:50px;"></div>
 
                 <!-- /.box-header -->
-                <div class="box-header">
+                <div class="box-header" style="padding-bottom: 20px">
 
 
                     <div class="row">
@@ -33,22 +29,22 @@
 
                                 <div class="col-12 col-md-12" style="padding-right: 30px;padding-bottom: 30px;">
                                     <div class="box box-widget widget-user ">
-                                        <div class="row panel panel-success">
-                                            <div class="col-12 text-center panel-heading">
-                                                <div class="widget-user-header bg-dark text-center">
-                                                    <a class="users-list-name1"
+                                        <div class="row card " >
+                                            <div class="col-12 text-center card-header " style="background-color: #dff0d8">
+                                                <div class="widget-user-header text-center">
+                                                    <a class="users-list-name1 "
                                                        href="{{ url('/front/equipes/'.$equipe->id.'/details')}}"><h5
                                                                 class="widget-user-username timeline-header">{{$equipe->intitule}} ({{$equipe->achronymes}})</h5>
                                                     </a>
                                                 </div>
                                             </div>
-                                            <div class="col-12" style="height: 20px;"></div>
+                                            <div class="col-12" style="height: 30px;"></div>
 
                                             <div class="col-12" align="center">
-                                                <h5 class="description-header">Chef d'équipe</h5>
-                                                <div class="widget-user-image text-center">
+                                                <h5 class="description-header" style="padding-top: 15px">Chef d'équipe</h5>
+                                                <div class="widget-user-image ">
                                                     <img style="height: 80px;width: 80px;"
-                                                         class="img-circle img-responsive border-form center-block"
+                                                         class="rounded-circle img-responsive border-form center-block"
                                                          src="{{asset($equipe->chef->photo)}}"
                                                          alt="User Avatar">
                                                 </div>
@@ -64,8 +60,8 @@
                                             </div>
                                             @foreach($nbr as $nbrs)
                                                 @if($nbrs->equipe_id == $equipe->id)
-                                                    <div class="col-9 pull-right">
-                                                        <div class="description-block text-center pull-right ">
+                                                    <div class="col-12 text-right float-right">
+                                                        <div class="description-block text-center float-right">
                                                             <h5 class="description-header">
 
                                                                 {{$nbrs->total}}
