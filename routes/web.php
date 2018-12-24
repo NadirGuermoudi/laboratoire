@@ -37,6 +37,9 @@ Route::get('/front/membres/{id}/details','front\MembreController@details');
 Route::get('/front/equipes','front\EquipeController@index')->name('equipes_path');
 Route::get('/front/equipes/{id}/details','front\EquipeController@details');
 
+Route::get('/front/theses','front\TheseController@index')->name('these_path');
+Route::get('/front/theses/{id}/details','front\TheseController@details');
+
 
 //backoffice
 
