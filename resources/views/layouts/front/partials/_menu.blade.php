@@ -8,7 +8,12 @@
                         <!-- menu logo -->
                         <ul class="menu-logo">
                             <li>
-                                <a href="{{url('/')}}"><img id="logo_img" src="{{asset('easy.png')}}" alt="logo"> </a>
+                               
+                                <a href="{{url('/')}}" class="logo" >
+                                    <span class="logo lg">
+                                          <img id="logo_img" src="{{asset($labo->logo)}}" alt="logo">  
+                                    </span>
+                                </a>  
                             </li>
                         </ul>
                         <!-- menu links -->

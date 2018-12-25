@@ -49,18 +49,26 @@
 					    </p>
 					    
 					</div>
-					<div class="card-footer bg-transparent border-secondary text-center"> 
-						<a href="{{ url('projets/'.$projet->id.'/details')}}" class="btn btn-outline-secondary "> Lire plus </a>
-					</div>
+					
+					{{-- The following code is for the modal class (the window that show up
+						in the same page) --}}
+					 <div class="card-footer bg-transparent border-success">
+					 		
+					 		<a href="{{ url('/front/projets/'.$projet->id.'/details')}}" class="btn btn-primary "> Lire plus </a>
+					 		
 					</div>
 
+					 </div>
+					
+					 @endforeach
 
-			@endforeach
+
+						
+
+					</div>
+	
 
 	</div>
-
-
-</div>
 
 
 @endsection

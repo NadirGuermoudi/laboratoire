@@ -22,11 +22,18 @@ class ProjetController extends Controller
 		return view('front/projets/projets', ['projets'=>$projets], ['labo', $labo], ['membres'=>$membres]);
 	}
 
-	
-	public function validLink(Request $request)
-	{
-		
-	}
+	public function details($id)
+    {
+        $labo =  Parametre::find('1');
+        $projet = Projet::find($id);
+        $membres = Projet::find($id)->users()->orderBy('name')->get();
+
+        return view('front/projets/projetsDetails')->with([
+            'projet' => $projet,
+            'membres'=>$membres,
+            'labo'=>$labo,
+        ]);;
+    } 
 
 	
 
