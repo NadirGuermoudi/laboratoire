@@ -16,7 +16,14 @@ class TheseController extends Controller
         $theses = These::all();
         $labo = Parametre::find('1');
 
-        return view('front.theses.these' , ['theses' => $theses] , ['labo'=>$labo]);
+        return view('front.theses.these')->with([
+
+            'theses' => $theses,
+            'labo' => $labo,
+
+        ]);
+            
+        
     }
 
     public function details($id)

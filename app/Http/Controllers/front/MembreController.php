@@ -13,9 +13,16 @@ class MembreController extends Controller
 {
     public function index()
     {
+
+        $labo = Parametre::find('1');
         $membres = User::all();
 
-        return view('front/membres/membre' , ['membres' => $membres]);
+        return view('front/membres/membre')->with([
+
+            'membres' => $membres,
+            'labo' => $labo,
+
+            ]);
     }
     public function details($id)
     {

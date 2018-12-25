@@ -25,17 +25,23 @@ Route::get('/front/projets', [
     'uses' => 'front\ProjetController@index'
 
 ]);
-//route faites par hz
+/* routes faits par ibrahim */
+Route::get('front/projets/{id}/details','front\ProjetController@details');
 
-Route::get('/', function () {
-    return view('front/index');
-})->name('home_path');
+
+
+//route faites par hz
+/* Ibrahim: I modified the route home_path, to associate with it a controller */
+Route::get('/', 'front\HomeController@index')->name('home_path');
 
 Route::get('/front/membres','front\MembreController@index')->name('membres_path');
 Route::get('/front/membres/{id}/details','front\MembreController@details');
 
 Route::get('/front/equipes','front\EquipeController@index')->name('equipes_path');
 Route::get('/front/equipes/{id}/details','front\EquipeController@details');
+
+Route::get('/front/theses','front\TheseController@index')->name('these_path');
+Route::get('/front/theses/{id}/details','front\TheseController@details');
 
 
 //backoffice

@@ -2,12 +2,6 @@
 
 @section('title','LRI | Liste des memebres')
 
-@section('header')
-    <style>
-
-    </style>
-
-@stop
 @section('content')
     <div class="col-12">
         <h2 class="theme-color text-center">Liste Des Membres Du Laboratoire</h2>
@@ -24,8 +18,8 @@
             @foreach($membres as $membre)
                 @if($membre->name != 'Admin' || is_null($membre->equipe_id))
 
-                    <div class="col-lg-3 col-md-3 col-sm-6 sm-mb-30">
-                        <div class="team team-round-shadow ">
+                    <div class="col-lg-3 col-md-3 col-sm-6 sm-mb-30" style="padding-bottom: 20px">
+                        <div class="team team-round-shadow border">
                             <div class="team-photo">
                                 <img style="height: 100px; width: 100px;" class="img-fluid center-block"
                                      src="{{asset($membre->photo)}}" alt="">
@@ -41,6 +35,7 @@
                             </div>
                         </div>
                     </div>
+
 
                 @endif
             @endforeach
