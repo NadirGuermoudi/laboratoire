@@ -19,7 +19,11 @@ class ProjetController extends Controller
 		$projets = Projet::all();
 		$membres = User::all();
 		$labo =  Parametre::find('1');
-		return view('front/projets/projets', ['projets'=>$projets], ['labo', $labo], ['membres'=>$membres]);
+		return view('front/projets/projets')->with([
+            'labo'=>$labo,
+            'projets' => $projets,
+            'membres' => $membres,
+        ]);
 	}
 
 	public function details($id)
