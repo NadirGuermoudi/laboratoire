@@ -45,6 +45,8 @@ Route::get('/login', function () {
 });
 
 //nouv
+Route::resource('partenaires', 'PartenaireController');
+
 Route::get('materials/category', 'MaterialsController@category')->name('materials.category');
 Route::post('materials/category', 'MaterialsController@addCategory')->name('materials.addCategory');
 Route::get('materials/borrow', 'MaterialsController@borrow')->name('materials.borrow');
