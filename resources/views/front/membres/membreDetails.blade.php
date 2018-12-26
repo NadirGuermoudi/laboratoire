@@ -3,11 +3,6 @@
 @section('title','LRI | details des membres')
 
 @section('header')
-    <div class="col-lg-12">
-        <div class="col-lg-8">
-
-        </div>
-    </div>
     <style>
         legend {
             color: #0f0f0f;
