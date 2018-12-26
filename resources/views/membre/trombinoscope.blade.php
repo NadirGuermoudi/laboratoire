@@ -33,4 +33,7 @@
             </div>
         </div>
     </div>
-@endsection
+    {{-- 
+        I turned the next code into a comment because I think it was generating an error
+        @endsection --}}
+

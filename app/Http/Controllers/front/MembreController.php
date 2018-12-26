@@ -14,10 +14,10 @@ class MembreController extends Controller
 {
     public function index()
     {
+
         $q = Input::get ( 'search' );
         $membres = User::all();
         return view('front/membres/membre', compact('membres' , 'q'));
-
     }
 
     public function details($id)
