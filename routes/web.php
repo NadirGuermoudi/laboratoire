@@ -35,10 +35,17 @@ Route::get('front/projets/{id}/details','front\ProjetController@details');
 Route::get('/', 'front\HomeController@index')->name('home_path');
 
 Route::get('/front/membres','front\MembreController@index')->name('membres_path');
+Route::any('/front/membres/search','front\MembreController@search')->name('membres_search_path');
+
 Route::get('/front/membres/{id}/details','front\MembreController@details');
 
 Route::get('/front/equipes','front\EquipeController@index')->name('equipes_path');
+Route::get('/front/equipes/search','front\EquipeController@search')->name('equipes_search_path');
 Route::get('/front/equipes/{id}/details','front\EquipeController@details');
+
+Route::get('/front/theses','front\TheseController@index')->name('these_path');
+Route::get('/front/theses/search','front\TheseController@search')->name('these_search_path');
+Route::get('/front/theses/{id}/details','front\TheseController@details');
 
 
 //backoffice
