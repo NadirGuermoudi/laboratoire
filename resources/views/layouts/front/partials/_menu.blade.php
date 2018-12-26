@@ -15,19 +15,24 @@
                         <div class="menu-bar">
                             <ul class="menu-links">
 
-                                <li class="{{ set_active_route('home_path') }}"><a tab-toggle="tab" href="{{route("home_path")}}">Home<i
+                                <li class="{{ set_active_route('home_path') }}"><a tab-toggle="tab"
+                                                                                   href="{{route("home_path")}}">Home<i
                                                 class="fa fa-indicator"></i></a></li>
-                                <li class="{{ set_active_route('equipes_path') }}"><a href="{{route('equipes_path')}}">equipes<i
+                                <li class="{{ set_active_route('equipes_path') }} {{ set_active_route('equipes_search_path') }}">
+                                    <a href="{{route('equipes_path')}}">equipes<i
                                                 class="fa fa-indicator"></i></a></li>
-                                <li class="{{ set_active_route('membres_path') }}"><a  href="{{route('membres_path')}}">membres<i
+                                <li class="{{ set_active_route('membres_path') }} {{ set_active_route('membres_search_path') }}">
+                                    <a href="{{route('membres_path')}}">membres<i
                                                 class="fa fa-indicator"></i></a></li>
-                                <li class="{{ set_active_route('projets-front') }}"><a href="{{route('projets-front')}}">Projets<i
+                                <li class="{{ set_active_route('projets-front') }}"><a
+                                            href="{{route('projets-front')}}">Projets<i
                                                 class="fa fa-indicator"></i></a></li>
-                                <li class="{{ set_active_route('these_path') }}"><a href="{{route('these_path')}}">theses<i
+                                <li class="{{ set_active_route('these_path') }} {{set_active_route('these_search_path')}}">
+                                    <a href="{{route('these_path')}}">theses<i
                                                 class="fa fa-indicator"></i></a></li>
-                                <li ><a href="{{url('front/contact')}}">Contact<i
+                                <li><a href="{{url('front/contact')}}">Contact<i
                                                 class="fa fa-indicator"></i></a></li>
-                                <li ><a href="{{url('front/apropos')}}">A Propos <i
+                                <li><a href="{{url('front/apropos')}}">A Propos <i
                                                 class="fa fa-indicator"></i></a></li>
                                 <li>
                                     <div class="search">

@@ -8,15 +8,16 @@ use App\Parametre;
 use App\User;
 use App\Http\Requests\theseRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 
 class TheseController extends Controller
 {
     public function index()
     {
         $theses = These::all();
-        $labo = Parametre::find('1');
+        $q = Input::get ( 'search' );
 
-        return view('front.theses.these' , ['theses' => $theses] , ['labo'=>$labo]);
+        return view('front.theses.these', compact('theses', 'labo' , 'q'));
     }
 
     public function details($id)
@@ -24,7 +25,17 @@ class TheseController extends Controller
         $these = These::find($id);
         $labo = Parametre::find('1');
 
-        return view('front.theses.theseDetails', ['these' => $these], ['labo'=>$labo]);
+        return view('front.theses.theseDetails', compact('these', 'labo'));
+    }
+
+    public function search()
+    {
+
+        $q = Input::get('search');
+        $theses = These::where('titre', 'LIKE', '%' . $q . '%')->orWhere('sujet', 'LIKE', '%' . $q . '%')->orWhere('date_soutenance', 'LIKE', '%' . $q . '%')->get();
+        $nbrResultatTrouver = These::where('titre', 'LIKE', '%' . $q . '%')->orWhere('sujet', 'LIKE', '%' . $q . '%')->orWhere('date_soutenance', 'LIKE', '%' . $q . '%')->get()->count();
+
+        return view('front.theses.these', compact('theses', 'labo' , 'q' ,'nbrResultatTrouver'));
     }
 
 }
