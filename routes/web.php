@@ -52,6 +52,7 @@ Route::get('/login', function () {
 
 //nouv
 Route::resource('partenaires', 'PartenaireController');
+Route::resource('contacts', 'ContactController');
 
 Route::get('materials/category', 'MaterialsController@category')->name('materials.category');
 Route::post('materials/category', 'MaterialsController@addCategory')->name('materials.addCategory');
