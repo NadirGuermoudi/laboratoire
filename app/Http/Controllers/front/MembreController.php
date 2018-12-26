@@ -14,10 +14,10 @@ class MembreController extends Controller
 {
     public function index()
     {
-
+        $labo =  Parametre::find('1');
         $q = Input::get ( 'search' );
         $membres = User::all();
-        return view('front/membres/membre', compact('membres' , 'q'));
+        return view('front/membres/membre', compact('membres' , 'q' ,'labo'));
     }
 
     public function details($id)
@@ -34,9 +34,11 @@ class MembreController extends Controller
     {
 
         $q = Input::get ( 'search' );
+        $labo =  Parametre::find('1');
+
         $membres = User::where('name','LIKE','%'.$q.'%')->orWhere('prenom','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->orWhere('grade','LIKE','%'.$q.'%')->get();
         $nbrResultatTrouver = User::where('name','LIKE','%'.$q.'%')->orWhere('prenom','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->orWhere('grade','LIKE','%'.$q.'%')->get() ->count();
-        return view('front/membres/membre', compact('membres', 'q' , 'nbrResultatTrouver'));
+        return view('front/membres/membre', compact('membres', 'q' , 'nbrResultatTrouver' ,'labo'));
 
     }
 }

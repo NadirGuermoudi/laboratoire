@@ -72,7 +72,12 @@
                                             <span><strong>Encadreur de la these :</strong></span>
                                         </div>
                                         <div class="col-6">
-                                            <span>{{$these->encadreur_int}}{{$these->encadreur_ext}}</span>
+                                            @if($these->encadreur_int != '' || $these->encadreur_ext != '')
+                                                <span style="display: block;">{{ $these->encadreur_int }}</span>
+                                                <span>{{ $these->encadreur_ext }}</span>
+                                            @else
+                                                <span class="text-center">/</span>
+                                            @endif
                                         </div>
                                     </div>
 
@@ -82,7 +87,12 @@
                                             <span><strong>Co-encadreur de la these :</strong></span>
                                         </div>
                                         <div class="col-6">
-                                            <span>{{$these->encadreur_int}}{{$these->encadreur_ext}}</span>
+                                            @if($these->coencadreur_int != '' || $these->coencadreur_ext != '')
+                                                <span style="display: block;">{{ $these->coencadreur_int }}</span>
+                                                <span>{{ $these->coencadreur_ext }}</span>
+                                            @else
+                                                <span class="text-center">/</span>
+                                            @endif
                                         </div>
                                     </div>
 
