@@ -18,7 +18,8 @@
                              src="{{asset($these->user->photo)}}" alt="">
                     </div>
                     <div class="col-12">
-                        <a href="{{url('front/membres/'.$these->user_id.'/details')}}">{{$these->user->name}} {{$these->user->prenom}}</a>
+                        <a href="{{url('front/membres/'.$these->user_id.'/details')}}">{{$these->user->name}} {{$these->user->prenom}}</a><br>
+                        <span><strong>{{$these->user->email}}</strong></span>
                     </div>
                 </div>
             </div>

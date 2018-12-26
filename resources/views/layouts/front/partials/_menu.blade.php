@@ -35,6 +35,8 @@
                                 <li class="{{ set_active_route('these_path') }} {{set_active_route('these_search_path')}}">
                                     <a href="{{route('these_path')}}">theses<i
                                                 class="fa fa-indicator"></i></a></li>
+                                <li><a href="{{url('front/contact')}}">articles<i
+                                                class="fa fa-indicator"></i></a></li>
                                 <li><a href="{{url('front/contact')}}">Contact<i
                                                 class="fa fa-indicator"></i></a></li>
                                 <li><a href="{{url('front/apropos')}}">A Propos <i
