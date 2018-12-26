@@ -18,13 +18,14 @@ class EquipeController extends Controller
     {
         $equipes = Equipe::all();
         $q = Input::get ( 'search' );
+        $labo =  Parametre::find('1');
 
         $nbr = DB::table('users')
             ->select(DB::raw('count(*) as total,equipe_id'))
             ->groupBy('equipe_id')
             ->get();
 
-        return view('front.equipe.equipe', compact('labo','equipes',  'nbr' ,'q'));
+        return view('front.equipe.equipe', compact('labo','equipes',  'nbr' ,'q','l'));
     }
 
     public function details($id)
@@ -42,6 +43,7 @@ class EquipeController extends Controller
 
     public function search()
     {
+        $labo =  Parametre::find('1');
 
         $nbr = DB::table('users')
             ->select(DB::raw('count(*) as total,equipe_id'))
@@ -49,9 +51,13 @@ class EquipeController extends Controller
             ->get();
 
         $q = Input::get('search');
-        $equipes = Equipe::where('intitule', 'LIKE', '%' . $q . '%')->orWhere('achronymes', 'LIKE', '%' . $q . '%')->get();
-        $nbrResultatTrouver = Equipe::where('intitule', 'LIKE', '%' . $q . '%')->orWhere('achronymes', 'LIKE', '%' . $q . '%')->get()->count();
-        return view('front.equipe.equipe', compact('labo', 'equipes', 'nbr', 'q' , 'nbrResultatTrouver'));
+
+        $equipes = Equipe::where('intitule', 'LIKE', '%' . $q . '%')
+            ->orWhere('achronymes', 'LIKE', '%' . $q . '%')->get();
+
+        $nbrResultatTrouver = Equipe::where('intitule', 'LIKE', '%' . $q . '%')
+            ->orWhere('achronymes', 'LIKE', '%' . $q . '%')->get()->count();
+        return view('front.equipe.equipe', compact('labo', 'equipes', 'nbr', 'q' , 'nbrResultatTrouver','l'));
 
     }
 }
