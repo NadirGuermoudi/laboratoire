@@ -253,7 +253,7 @@ class MaterialsController extends Controller
 			$materialTmp->update([
 				'category' => $request->category, 
 				'numero' => $request->numero,
-				'empruntable' => strcmp($request->input('empruntable'), "checked") ? true : false,
+				'empruntable' => isset($request->empruntable) ? true : false,
 				'prix' => intval($request->prix),
 			]);
 

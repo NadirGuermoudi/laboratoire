@@ -202,7 +202,7 @@
         
         @if(Auth::user()->role->nom == 'admin' )
         <li @if($active == 'partenaires')  class="active" @endif >
-        <a href="{{url('parametre')}}">
+        <a href="{{route('contacts.index')}}">
           <i class="fa fa-handshake-o"></i>
           <span>Partenaires</span></a>
         </li>
