@@ -2,9 +2,8 @@
 
 namespace App;
 
-use Illuminate\Support\Facades\DB;
-
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Material extends Model
 {
