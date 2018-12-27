@@ -8,22 +8,18 @@ use App\User;
 use App\Parametre;
 use App\Equipe;
 use App\Role;
+use Illuminate\Support\Facades\Input;
 
 class MembreController extends Controller
 {
     public function index()
     {
-
-        $labo = Parametre::find('1');
+        $labo =  Parametre::find('1');
+        $q = Input::get ( 'search' );
         $membres = User::all();
-
-        return view('front/membres/membre')->with([
-
-            'membres' => $membres,
-            'labo' => $labo,
-
-            ]);
+        return view('front/membres/membre', compact('membres' , 'q' ,'labo'));
     }
+
     public function details($id)
     {
         $membre = User::find($id);
@@ -31,13 +27,18 @@ class MembreController extends Controller
         $roles = Role::all();
         $labo = Parametre::find('1');
 
+        return view('front.membres.membreDetails', compact('membre', 'equipes', 'roles', 'labo'));
+    }
 
-        return view('front.membres.membreDetails')->with([
-            'membre' => $membre,
-            'equipes' => $equipes,
-            'roles' => $roles,
-            'labo'=>$labo,
+    public function search()
+    {
 
-        ]);;
+        $q = Input::get ( 'search' );
+        $labo =  Parametre::find('1');
+
+        $membres = User::where('name','LIKE','%'.$q.'%')->orWhere('prenom','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->orWhere('grade','LIKE','%'.$q.'%')->get();
+        $nbrResultatTrouver = User::where('name','LIKE','%'.$q.'%')->orWhere('prenom','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->orWhere('grade','LIKE','%'.$q.'%')->get() ->count();
+        return view('front/membres/membre', compact('membres', 'q' , 'nbrResultatTrouver' ,'labo'));
+
     }
 }

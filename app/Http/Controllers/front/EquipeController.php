@@ -10,27 +10,22 @@ use App\Parametre;
 use App\Equipe;
 use App\User;
 use Auth;
+use Illuminate\Support\Facades\Input;
 
 class EquipeController extends Controller
 {
     public function index()
     {
-        $labo = Parametre::find('1');
         $equipes = Equipe::all();
-        // $nbr = DB::table('users')
-        //            ->groupBy('equipe_id')
-        //            ->count('equipe_id');
+        $q = Input::get ( 'search' );
+        $labo =  Parametre::find('1');
 
         $nbr = DB::table('users')
-            ->select( DB::raw('count(*) as total,equipe_id'))
+            ->select(DB::raw('count(*) as total,equipe_id'))
             ->groupBy('equipe_id')
             ->get();
 
-        return view('front.equipe.equipe')->with([
-            'equipes' => $equipes,
-            'nbr' => $nbr,
-            'labo'=>$labo,
-        ]);
+        return view('front.equipe.equipe', compact('labo','equipes',  'nbr' ,'q','l'));
     }
 
     public function details($id)
@@ -42,7 +37,27 @@ class EquipeController extends Controller
         return view('front.equipe.equipeDetails')->with([
             'equipe' => $equipe,
             'membres' => $membres,
-            'labo'=>$labo,
+            'labo' => $labo,
         ]);
+    }
+
+    public function search()
+    {
+        $labo =  Parametre::find('1');
+
+        $nbr = DB::table('users')
+            ->select(DB::raw('count(*) as total,equipe_id'))
+            ->groupBy('equipe_id')
+            ->get();
+
+        $q = Input::get('search');
+
+        $equipes = Equipe::where('intitule', 'LIKE', '%' . $q . '%')
+            ->orWhere('achronymes', 'LIKE', '%' . $q . '%')->get();
+
+        $nbrResultatTrouver = Equipe::where('intitule', 'LIKE', '%' . $q . '%')
+            ->orWhere('achronymes', 'LIKE', '%' . $q . '%')->get()->count();
+        return view('front.equipe.equipe', compact('labo', 'equipes', 'nbr', 'q' , 'nbrResultatTrouver','l'));
+
     }
 }
