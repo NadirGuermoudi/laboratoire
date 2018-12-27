@@ -44,9 +44,7 @@
 			  <th>Emprunté par</th>
 			  <th>Disponible le</th>
 			  <th>Jours restants</th>
-			  @if(Auth::user()->role->nom == 'admin')
 			  <th>Actions</th>
-			  @endif
 			</tr>
 			</thead>
 			<tbody>

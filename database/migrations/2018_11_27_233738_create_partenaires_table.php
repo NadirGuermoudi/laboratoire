@@ -20,6 +20,7 @@ class CreatePartenairesTable extends Migration
             $table->string('pays',50);
             $table->string('ville',50);
             $table->string('adresse')->nullable();
+            $table->string('email')->nullable();
             $table->string('telephone',10)->nullable();
             $table->timestamps();
         });

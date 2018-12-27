@@ -22,11 +22,12 @@ class CreateContactsTable extends Migration
             $table->string('pays',50);
             $table->string('ville',50);
             $table->string('adresse')->nullable();
+            $table->string('email')->nullable();
             $table->string('telephone',10)->nullable();
             $table->timestamps();
 
             $table->unique('nom', 'prenom');
-            $table->foreign('partenaire_id')->references('id')->on('partenaires');
+            $table->foreign('partenaire_id')->references('id')->on('partenaires')->onDelete('cascade');
         });
     }
 

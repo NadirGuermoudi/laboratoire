@@ -46,7 +46,6 @@
 						<div class="col-xs-9 inputGroupContainer @if($errors->get('category')) has-error @endif">
 							<div style="width: 70%">
 								<select name="category" class="form-control select2" value="{{ old('category') ?? $mat->category }}">
-								<option>{{ $mat->category }}</option>
 									@foreach($MaterialCategories as $categorie)
 										<option value="{{ $categorie->name }}">{{ $categorie->name }}</option>
 									@endforeach
@@ -69,7 +68,7 @@
 					<div class="form-group">
 						<label class="col-xs-3 control-label">empruntable ?</label>
 						<label class="col-xs-9 control-label" title="empruntable?">
-							<input name="empruntable" type="checkbox" class="flat-red" value="{{old('empruntable') ?? $mat->empruntable }}">
+							<input name="empruntable" type="checkbox" class="flat-red" @if($mat->empruntable) checked @endif>
 						</label>
 					</div>
 
