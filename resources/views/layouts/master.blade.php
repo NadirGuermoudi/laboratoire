@@ -54,12 +54,10 @@
     <![endif]-->
 
     <!-- Google Font -->
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-
 
   <header class="main-header" style="position: fixed; width: 100%">
     <!-- Logo -->
@@ -75,17 +73,6 @@
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
-
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-  
-          <!-- User Account: style can be found in dropdown.less -->
-          <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{asset(Auth::user()->photo)}}" class="user-image" alt="User Image">
-              <span class="hidden-xs">{{Auth::user()->name}} {{Auth::user()->prenom}}</span>
-            </a>
-
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
 
@@ -192,7 +179,7 @@
                         <li><a href="{{url('membres')}}"><i class="fa fa-list"></i> Liste</a></li>
                     </ul>
                 </li>
-                
+
                 <li @if($active == 'theses')  class="active" @endif>
                     <a href="{{url('theses')}}">
                         <i class="fa fa-file-pdf-o"></i>

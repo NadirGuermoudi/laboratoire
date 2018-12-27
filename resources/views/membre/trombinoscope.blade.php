@@ -15,6 +15,7 @@
     </ol>
 @endsection
 
+@section('content')
     <div class="row">
         <div class="col-md-12">
             <div style="padding-top: 30px">
@@ -33,7 +34,4 @@
             </div>
         </div>
     </div>
-    {{-- 
-        I turned the next code into a comment because I think it was generating an error
-        @endsection --}}
-
+@endsection
