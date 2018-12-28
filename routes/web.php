@@ -28,6 +28,16 @@ Route::get('/front/projets', [
 /* routes faits par ibrahim */
 Route::get('front/projets/{id}/details','front\ProjetController@details');
 
+/* routes faits par ibrahim */
+
+Route::get('/front/articles',[
+
+	'as' => 'articles-front' , 
+	'uses' => 'front\ArticlesController@index'
+
+]);
+
+Route::get('front/articles/{id}/details', 'front\ArticlesController@details');
 
 
 //route faites par hz
