@@ -44,8 +44,12 @@ Route::get('front/articles/{id}/details', 'front\ArticlesController@details');
 /* Ibrahim: I modified the route home_path, to associate with it a controller */
 Route::get('/', 'front\HomeController@index')->name('home_path');
 
+
+Route::get('/front/contact', 'front\ContactController@index')->name('contact_path');
+Route::post('/front/contact', 'front\ContactController@store')->name('contact_store');
+
 Route::get('/front/membres','front\MembreController@index')->name('membres_path');
-Route::any('/front/membres/search','front\MembreController@search')->name('membres_search_path');
+Route::get('/front/membres/search','front\MembreController@search')->name('membres_search_path');
 
 Route::get('/front/membres/{id}/details','front\MembreController@details');
 
