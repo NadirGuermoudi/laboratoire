@@ -69,6 +69,8 @@ Route::get('/login', function () {
 });
 
 //nouv
+Route::resource('actualites', 'ActualitesController');
+
 Route::resource('partenaires', 'PartenaireController');
 Route::resource('contacts', 'ContactController');
 
@@ -82,7 +84,7 @@ Route::put('materials/return/{id}', 'MaterialsController@return')->name('materia
 Route::resource('materials', 'MaterialsController');
 //fin nouv
 Route::get('dashboard','dashController@index')->name('dashboard');
-Route::get('parametre','ParametreController@create');
+Route::get('parametre','ParametreController@index')->name('parametre.index');
 Route::post('parametre','ParametreController@store');
 
 Route::get('theses','TheseController@index');
