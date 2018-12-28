@@ -3,6 +3,7 @@
 
 
 @section('content')
+<br/>
     <div class="col-12">
         <div class="col-12">
             <h2 class="theme-color text-center" style="padding-bottom: 20px;">Liste Des Theses Du Laboratoire</h2>

@@ -23,21 +23,11 @@
 
 <div class="container">
 
-{{-- 
-	
-	Tasks: 
-	1- Lire plus link must send to pages without loging in
-	2- clicking on members must send to pages aswell without logging in
-
- --}}
 
 {{--  <div class="row">
  		
 		<div class="card-deck col-md-12"> --}}
 
-		<!-- Later, I must treat the case where we have only one projet existing in DB,
-		so the display gonna be a litte annoying when showing one projet that take the space
-		of all the page -->
 			<div class="row ">
 			@foreach($projets as $projet)
 			<div class="col-md-4">
