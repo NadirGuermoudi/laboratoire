@@ -32,10 +32,12 @@
 			@foreach($projets as $projet)
 			<div class="col-md-4">
 			  	<div class="card bg-light border-secondary " style="height:23rem; width:23rem; margin: 0px 0px 20px 0px;" >
-					<div class="card-header bg-light border-secondary"> <h6> {{ $projet->intitule }} </h6>
+					<div class="card-header bg-light border-secondary"> 
+						<h6> {{ $projet->intitule }} </h6>
 					</div>
 					<div class="card-body text-success border-secondary ">
-					    <h6 class="card-title"> Chef: {{ $projet->chef->name }} {{ $projet->chef->prenom }} </h6>
+					    <h6 class="card-title"> 
+					    	Chef: {{ $projet->chef->name }} {{ $projet->chef->prenom }} </h6>
 					    <p class="card-text">
 					    	type: {{ $projet->type }}
 					    	membres:
