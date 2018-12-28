@@ -3,6 +3,7 @@
 @section('title','LRI | Liste des memebres')
 
 @section('content')
+<br/>
     <div class="col-12" style="padding-bottom: 30px">
         <h2 class="theme-color text-center">Liste Des Membres Du Laboratoire</h2>
     </div>
@@ -15,7 +16,7 @@
             <form class="form-inline col-12 col-sm-6 col-md-4" action="{{route('membres_search_path')}}"
                   method="GET" style="padding-bottom: 30px">
                 {{csrf_field()}}
-                <input class="form-control form-control-sm mr-3 w-75" value="@if($q != '' && $nbrResultatTrouver >= 0){{$q}}@endif" type="text" name="search" placeholder="Rechercher"
+                <input class="form-control form-control-sm mr-3 w-75 " value="@if($q != '' && $nbrResultatTrouver >= 0){{$q}}@endif" type="text" name="search" placeholder="Rechercher"
                        aria-label="Search">
                 <i class="fa fa-search" aria-hidden="true"></i>
             </form>
@@ -40,6 +41,10 @@
 
         <div class="container">
             <div class="row">
+
+
+               
+
 
 
                 @foreach($membres as $membre)

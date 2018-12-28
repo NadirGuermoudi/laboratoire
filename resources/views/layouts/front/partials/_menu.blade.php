@@ -8,12 +8,12 @@
                         <!-- menu logo -->
                         <ul class="menu-logo">
                             <li>
-                               
-                                <a href="{{url('/')}}" class="logo" >
+
+                                <a href="{{url('/')}}" class="logo">
                                     <span class="logo lg">
                                           <img id="logo_img" src="{{asset($labo->logo)}}" alt="logo">  
                                     </span>
-                                </a>  
+                                </a>
                             </li>
                         </ul>
                         <!-- menu links -->
@@ -35,9 +35,9 @@
                                 <li class="{{ set_active_route('these_path') }} {{set_active_route('these_search_path')}}">
                                     <a href="{{route('these_path')}}">theses<i
                                                 class="fa fa-indicator"></i></a></li>
-                                <li><a href="{{url('front/contact')}}">articles<i
+                                <li class="{{ set_active_route('articles-front') }}" ><a href="{{route('articles-front')}}">articles<i
                                                 class="fa fa-indicator"></i></a></li>
-                                <li><a href="{{url('front/contact')}}">Contact<i
+                                <li class="{{set_active_route('contact_path')}}"><a href="{{route('contact_path')}}">Contact<i
                                                 class="fa fa-indicator"></i></a></li>
                                 <li><a href="{{url('front/apropos')}}">A Propos <i
                                                 class="fa fa-indicator"></i></a></li>

@@ -6,7 +6,7 @@
           <ul>
             <li><i class="fa fa-envelope-o theme-color"></i> contact@LRI.com</li>
              <li><i class="fa fa-phone"></i> <a href="tel:+7042791249"> <span>+(213) 43-42-55-24 </span> </a> </li>
-          </ul>
+          </ul> 
         </div>
       </div>
       <div class="col-lg-6 col-md-6 col-sm-6">

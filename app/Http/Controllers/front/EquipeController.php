@@ -25,7 +25,7 @@ class EquipeController extends Controller
             ->groupBy('equipe_id')
             ->get();
 
-        return view('front.equipe.equipe', compact('labo','equipes',  'nbr' ,'q','l'));
+        return view('front.equipe.equipe', compact('labo','equipes',  'nbr' ,'q'));
     }
 
     public function details($id)

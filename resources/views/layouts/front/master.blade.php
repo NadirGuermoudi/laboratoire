@@ -45,11 +45,7 @@
     </head>
 
     <body>
-        {{-- 
-            ibrahim: I'm going to touch in the include of jquery.js it was on the bottom of the page, I'm 
-            gonna turn it into the top of the page to try to fix the problem of modals
-    
-         --}}
+       
 
         <div class="wrapper">
 
