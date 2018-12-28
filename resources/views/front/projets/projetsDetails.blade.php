@@ -15,8 +15,12 @@
 @endsection
 
 @section('content')
+  
+  <br/>
 
-	<br/> <br/>
+	<div class="col-12" style="padding-bottom: 30px">
+      <h2 class="theme-color text-center "> Informations sur le projet </h2>
+  </div>
 
 
 <div class="container">

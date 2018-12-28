@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-
+<br/>
     <div class="row">
         <div class="col-12">
             <div class="col-12 ">
