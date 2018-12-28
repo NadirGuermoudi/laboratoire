@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Partenaire extends Model
 {
     protected $fillable = ['name', 'type', 'pays', 'ville', 'adresse', 'email','telephone', 'created_at','updated_at'];
+
+    public function contacts(){
+    	return $this->hasMany('App\Contact');
+    }
 }

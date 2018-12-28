@@ -169,6 +169,7 @@ Route::any('/search',function(){
             'projets' => $projets,
             'equipes' => $equipes,
             'labo'=>$labo,
+            'active' => '',
         ]);
 });
 
