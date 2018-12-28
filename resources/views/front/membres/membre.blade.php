@@ -8,18 +8,16 @@
     </div>
 
     <!-- Search form -->
-    <div class="col-12" style="">
-        <div class="row">
-            <div class="col-8 col-md-8 col-sm-6">
-            </div>
-            <form class="form-inline col-12 col-sm-6 col-md-4" action="{{route('membres_search_path')}}"
-                  method="GET" style="padding-bottom: 30px">
-                {{csrf_field()}}
-                <input class="form-control form-control-sm mr-3 w-75 " value="@if($q != '' && $nbrResultatTrouver >= 0){{$q}}@endif" type="text" name="search" placeholder="Rechercher"
-                       aria-label="Search">
-                <i class="fa fa-search" aria-hidden="true"></i>
-            </form>
-        </div>
+    <div class="col-12 text-center">
+        <form class="form-inline" action="{{route('membres_search_path')}}"
+              method="GET" style="padding-bottom: 30px">
+            {{csrf_field()}}
+            <input class="form-control col-12"
+                   value="@if($q != '' && $nbrResultatTrouver >= 0){{$q}}@endif" type="text" name="search"
+                   placeholder="Rechercher"
+                   aria-label="Search">
+
+        </form>
     </div>
     @if($q != '' && $nbrResultatTrouver > 0)
         <div class="col-12 text-center" style="padding-bottom: 20px">
@@ -40,10 +38,6 @@
 
         <div class="container">
             <div class="row">
-
-
-               
-
 
 
                 @foreach($membres as $membre)
