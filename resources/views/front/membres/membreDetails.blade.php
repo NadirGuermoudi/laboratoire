@@ -3,15 +3,7 @@
 @section('title','LRI | details des membres')
 
 @section('header')
-    <style>
-        legend {
-            color: #0f0f0f;
-        }
 
-        p {
-            color: #00a157;
-        }
-    </style>
 @stop
 @section('content')
 
