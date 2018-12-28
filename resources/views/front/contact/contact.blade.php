@@ -12,6 +12,14 @@
         </div>
     </div>
 
+    @if(session()->has('message'))
+        <center>
+            <div class="col-3 alert alert-success text-center" style="padding-bottom: 20px">
+                {{ session()->get('message') }}
+            </div>
+        </center>
+    @endif
+
     <div class="touch-in white-bg row col-12" style="padding-bottom: 30px;">
         <div class="col-4">
             <div class="contact-box text-center">
@@ -38,27 +46,43 @@
 
     <div class="row">
         <div class="col-sm-12">
-            <div id="formmessage">Success/Error Message Goes Here</div>
-            <form class="form-horizontal" id="contactform" action="{{route('contact_store')}}" role="form" method="POST">
+            <div id="formmessage"></div>
+            <form class="form-horizontal" action="{{url('front/contact')}}" method="POST" novalidate>
+
+                <input type="hidden" name="_token" value="{{csrf_token()}}">
                 {{csrf_field()}}
 
-                <div class="contact-form clearfix">
-                    <div class="section-field">
-                        <input id="name" type="text" placeholder="Nom*" class="form-control" name="nom">
+                <div class="contact-form clearfix ">
+                    <div class="section-field has-error">
+                        <input id="name" type="text" placeholder="Nom" class="form-control" name="nom"
+                               value="{{old('nom')}}" required>
+                        {!! $errors->first('nom','<center><span class="help-block text-danger"><strong>:message</strong></span></center>') !!}
                     </div>
 
-                    <div class="section-field">
-                        <input type="email" placeholder="Email*" class="form-control" name="email">
+
+                    <div class="section-field" style="padding-bottom: 7px">
+                        <input type="email" placeholder="Email" class="form-control" value="{{old('email')}}"
+                               name="email" required>
+                        {!! $errors->first('email','<center><span class="help-block text-danger"><strong>:message</strong></span></center>') !!}
                     </div>
-                    <div class="section-field">
-                        <input type="text" placeholder="Telphone*" class="form-control" name="num">
+
+
+                    <div class="section-field" style="padding-bottom: 7px">
+                        <input type="text" placeholder="Telphone" class="form-control" value="{{old('telephone')}}"
+                               name="telephone" required>
+                        {!! $errors->first('telephone','<center><span class="help-block text-danger"><strong>:message</strong></span></center>') !!}
                     </div>
-                    <div class="section-field textarea">
-                            <textarea class="input-message form-control" placeholder="Message*" rows="7"
-                                      name="message"></textarea>
+
+
+                    <div class="section-field textarea" style="padding-bottom: 7px">
+                            <textarea class="input-message form-control" placeholder="Votre message..." rows="7"
+                                      name="message" required>{{old('message')}}</textarea>
+                        {!! $errors->first('message','<center><span class="help-block text-danger"><strong>:message</strong></span></center>') !!}
                     </div>
+
+
                 </div>
-                <div class="section-field submit-button text-center">
+                <div class="section-field submit-button text-center" style="padding-top: 10px">
                     <button type="submit" class="button">
                         <span> Envoyer message </span>
                         <i class="fa fa-paper-plane"></i></button>

@@ -19,19 +19,15 @@ class ContactController extends Controller
 
     public function store(Request $request)
     {
-
+        $labo = Parametre::find('1');
         $this->validate($request, [
-            'nom' => 'required',
+            'nom' => 'required|min:3',
             'email' => 'required|email',
-            'num' => 'required',
-            'message' => 'required'
+            'telephone' => 'required',
+            'message' => 'required|min:10'
         ]);
-        Message::create(['nom' => $request->nom,
-            'email' => $request->email,
-            'num_de_tel' => $request->num_de_tel,
-            'message' => $request->message
-        ]);
+         Message::create($request->only('nom','email','numero_de_tel','message'));
 
-        return view('front.index');
+        return redirect()->back()->with('message', 'Votre message a ete bien envoyer!');
     }
 }

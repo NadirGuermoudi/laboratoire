@@ -39,7 +39,7 @@ Route::get('/front/contact', 'front\ContactController@index')->name('contact_pat
 Route::post('/front/contact', 'front\ContactController@store')->name('contact_store');
 
 Route::get('/front/membres','front\MembreController@index')->name('membres_path');
-Route::any('/front/membres/search','front\MembreController@search')->name('membres_search_path');
+Route::get('/front/membres/search','front\MembreController@search')->name('membres_search_path');
 
 Route::get('/front/membres/{id}/details','front\MembreController@details');
 
