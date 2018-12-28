@@ -15,8 +15,11 @@
 @endsection
 
 @section('content')
-
-<br/> <br/> 
+<br/>
+<div class="col-12" style="padding-bottom: 30px">
+    <h2 class="theme-color text-center"> Liste Des Projets Du Laboratoire </h2>
+</div>
+ 
 
 <div class="container">
 
@@ -28,13 +31,19 @@
 
  --}}
 
-	<div class="card-deck">
+{{--  <div class="row">
+ 		
+		<div class="card-deck col-md-12"> --}}
+
 		<!-- Later, I must treat the case where we have only one projet existing in DB,
 		so the display gonna be a litte annoying when showing one projet that take the space
 		of all the page -->
+			<div class="row ">
 			@foreach($projets as $projet)
-			  	<div class="card bg-light mb-3 border-secondary" style="max-width: 18rem;">
-					<div class="card-header bg-light border-secondary"> <h6> {{ $projet->intitule }} </h6> </div>
+			<div class="col-md-4">
+			  	<div class="card bg-light border-secondary " style="height:23rem; width:23rem; margin: 0px 0px 20px 0px;" >
+					<div class="card-header bg-light border-secondary"> <h6> {{ $projet->intitule }} </h6>
+					</div>
 					<div class="card-body text-success border-secondary ">
 					    <h6 class="card-title"> Chef: {{ $projet->chef->name }} {{ $projet->chef->prenom }} </h6>
 					    <p class="card-text">
@@ -59,16 +68,16 @@
 					</div>
 
 					 </div>
+					</div> {{-- colmd --}}
 					
 					 @endforeach
 
 
-						
+						</div>
 
-					</div>
-	
-
-	</div>
+				{{-- 	</div> card deck
+				</div> {{ row }} --}}
+	</div> <!-- container -->
 
 
 @endsection
