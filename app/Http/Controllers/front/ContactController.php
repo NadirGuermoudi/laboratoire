@@ -26,7 +26,12 @@ class ContactController extends Controller
             'telephone' => 'required',
             'message' => 'required|min:10'
         ]);
-         Message::create($request->only('nom','email','numero_de_tel','message'));
+         Message::create([
+            'nom' => $request->nom,
+            'email' => $request->email,
+            'numero_de_tel' => $request->telephone,
+            'message' => $request->message
+        ]);
 
         return redirect()->back()->with('message', 'Votre message a ete bien envoyer!');
     }
