@@ -8,20 +8,92 @@
 	<ol class="breadcrumb">
 		<li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
 		<li><a href="{{route('partenaires.index')}}">Partenaires</a></li>
-		<li>Contacts</li>
+		<li>Details</li>
 	</ol>
 @endsection
 
 @section('content')
-<div class="container box">
+	<div class="container box">
 	<div class="row">
 		<div class="box-header col-xs-12">
-			<h3 class="box-title">Liste des Contacts</h3>
+			<h3 class="box-title">Détails ( {{$par->name}} )</h3>
 		</div>
 	</div>
 	
 	@include('layouts/partials/_menuPartenaire')
 
+	<div class="row" style="float: none; margin: 0 auto;">
+	<div class="col-md-6">
+	<div class="row" style="margin-top: 10px">
+		<div class="col-md-3">
+			<strong><i class="glyphicon glyphicon-briefcase margin-r-5"></i>Nom</strong>
+		</div>
+		<div class="col-md-9">
+			{{$par->name}}
+		</div>
+	</div>
+
+	<div class="row" style="margin-top: 10px">
+		<div class="col-md-3">
+			<strong><i class="fa fa-bars margin-r-5"></i>Type</strong>
+		</div>
+		<div class="col-md-9">
+			{{$par->type}}
+		</div>
+	</div>
+
+	<div class="row" style="margin-top: 10px">
+		<div class="col-md-3">
+			<strong><i class="glyphicon glyphicon-globe margin-r-5"></i>Pays</strong>
+		</div>
+		<div class="col-md-9">
+			{{$par->pays}}
+		</div>
+	</div>
+
+	<div class="row" style="margin-top: 10px">
+		<div class="col-md-3">
+			<strong><i class="glyphicon glyphicon-globe margin-r-5"></i>Ville</strong>
+		</div>
+		<div class="col-md-9">
+			{{$par->ville}}
+		</div>
+	</div>
+	</div>
+
+	<div class="col-md-6">
+	<div class="row" style="margin-top: 10px">
+		<div class="col-md-3">
+			<strong><i class="glyphicon glyphicon-globe margin-r-5"></i>Adresse</strong>
+		</div>
+		<div class="col-md-9">
+			{{$par->adresse}}
+		</div>
+	</div>
+
+	<div class="row" style="margin-top: 10px">
+		<div class="col-md-3">
+			<strong><i class="fa fa-envelope margin-r-5"></i>Email</strong>
+		</div>
+		<div class="col-md-9">
+			{{$par->email}}
+		</div>
+	</div>
+
+	<div class="row" style="margin-top: 10px">
+		<div class="col-md-3">
+			<strong><i class="glyphicon glyphicon-earphone margin-r-5"></i>Telephone</strong>
+		</div>
+		<div class="col-md-9">
+			{{$par->telephone}}
+		</div>
+	</div>
+	</div>
+	
+	</div>
+	<hr>
+
+	<h3>Contacts liste :</h3>
 	<!-- /.box-header -->
 	<div class="box-body">
 	  <table id="example1" class="table table-bordered table-striped">
@@ -35,7 +107,7 @@
 		</tr>
 		</thead>
 		<tbody>
-		  @foreach($contacts as $contact)
+		  @foreach($par->contacts as $contact)
 		  <tr>
 			<td>{{$contact->nom}}</td>
 			<td>{{$contact->prenom}}</td>

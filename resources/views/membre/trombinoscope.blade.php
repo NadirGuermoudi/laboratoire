@@ -16,6 +16,7 @@
 @endsection
 
 @section('content')
+    <legend><center><h2><b>TROMBINOSCOPE</b></h2></center></legend><br>
     <div class="row">
         <div class="col-md-12">
             <div style="padding-top: 30px">

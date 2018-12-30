@@ -1,0 +1,1 @@
+<h1>ici un formulaire d'ajout d'une actualite (un titre, une photo, un resumer qui sera afficher f front, et le contenu eli y9ad ykoun un contenu html)</h1>

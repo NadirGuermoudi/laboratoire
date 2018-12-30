@@ -79,7 +79,10 @@ class PartenaireController extends Controller
 	 */
 	public function show(Partenaire $partenaire)
 	{
-		//
+		$labo = Parametre::find('1');
+		$par = Partenaire::findOrFail($partenaire)->first();
+
+		return view('partenaire/show', compact('labo', 'par'));
 	}
 
 	/**
