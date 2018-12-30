@@ -13,6 +13,7 @@
 @endsection
 
 @section('content')
+
 <div class="container box">
 	<div class="row">
 		<div class="box-header col-xs-12">
@@ -23,30 +24,18 @@
 	@include('layouts/partials/_menuParametre')
 
 
-	@if($message=Session::get('success'))
-			<div class="alert alert-info">
-				<p> {{ $message }} </p>
-			</div>
-		
-	@endif
-	
-	<div class="nav-tabs-custom col-md-12">
-		<ul class="nav nav-tabs">
-			<li class="active"><a href="#Actualites" data-toggle="tab">Actualités</a></li>
-			<li><a href="#ajouter" data-toggle="tab">Ajouter</a></li>
-		</ul>
+	<div class="row">
+	      <div class="col-md-12">
+	           <div class="box box-primary">
+	            <div class="box-header with-border">
+	              <h3 class="box-title"> Informations sur l'actualité </h3>
+	            </div>
+	            <!-- /.box-header -->
+	            <div class="box-body">
+	            </div>
 
-		<div class="tab-content">
-			<div class="active tab-pane" id="Actualites">
-				@include('parametre/actualite/actualites')
-			</div>
 
-			<div class="tab-pane" id="ajouter">
-				@include('parametre/actualite/create')
-			</div>
 
-		</div><!-- /.tab-content -->
 
-	</div><!-- fin nav-tabs-custom -->
-	
-@endsection
+
+</div>

@@ -30,7 +30,7 @@
 
 			<div class="row ">
 			@foreach($projets as $projet)
-			<div class="col-md-4">
+			<div class="col-md-4 ">
 			  	<div class="card bg-light border-secondary " style="height:23rem; width:23rem; margin: 0px 0px 20px 0px;" >
 					<div class="card-header bg-light border-secondary"> 
 						<h6> {{ $projet->intitule }} </h6>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Actualite;
 use App\Parametre;
+use Auth;
 use Illuminate\Http\Request;
 
 class ActualitesController extends Controller
@@ -16,6 +17,10 @@ class ActualitesController extends Controller
 	public function index()
 	{
 		$labo = Parametre::find('1');
+
+		$actualites = Actualite::latest()->paginate(5);
+					return view('parametre.actualite.index', compact('actualites','labo'))->with('i', (request()->input('page',1)-1)*5);
+
 		return view('parametre/actualite/index', compact('labo'));
 	}
 
@@ -26,7 +31,7 @@ class ActualitesController extends Controller
 	 */
 	public function create()
 	{
-		//
+		return view('parametre.actualite.create');
 	}
 
 	/**
@@ -37,7 +42,18 @@ class ActualitesController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		//
+		
+		// var_dump($request->except('_token')); die;
+
+		$request->validate([
+						'titre' => 'required',
+						'image' => 'required',
+						'resume' => 'required'
+					]); 
+					
+					Actualite::create($request->except('_token'));
+					return redirect()->route('actualites.index')-> with('success', 'l\' actualité a été créé avec succès ');
+
 	}
 
 	/**
@@ -48,7 +64,7 @@ class ActualitesController extends Controller
 	 */
 	public function show(Actualite $actualite)
 	{
-		//
+					return view('article.detail', compact('actualite'));
 	}
 
 	/**
@@ -82,6 +98,12 @@ class ActualitesController extends Controller
 	 */
 	public function destroy(Actualite $actualite)
 	{
-		//
+
+					if(Auth::user()->role->nom == 'admin'){
+						Actualite::destroy($actualite->id);
+						return redirect()->route('actualites.index')->with('success', 'Vous avez supprimé une actualité');
+					}
 	}
 }
+
+
