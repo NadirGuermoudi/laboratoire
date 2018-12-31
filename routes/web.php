@@ -25,6 +25,9 @@ Route::get('/front/projets', [
     'uses' => 'front\ProjetController@index'
 
 ]);
+
+Route::get('front/projets/search','front\ProjetController@action')->name('projet_search_path');
+
 /* routes faits par ibrahim */
 Route::get('front/projets/{id}/details','front\ProjetController@details');
 
@@ -36,6 +39,7 @@ Route::get('/front/articles',[
 	'uses' => 'front\ArticlesController@index'
 
 ]);
+Route::get('front/articles/search', 'front\ArticlesController@action')->name('article_search_path');
 
 Route::get('front/articles/{id}/details', 'front\ArticlesController@details');
 
@@ -49,16 +53,16 @@ Route::get('/front/contact', 'front\ContactController@index')->name('contact_pat
 Route::post('/front/contact', 'front\ContactController@store')->name('contact_store');
 
 Route::get('/front/membres','front\MembreController@index')->name('membres_path');
-Route::get('/front/membres/search','front\MembreController@search')->name('membres_search_path');
+Route::get('/front/membres/search','front\MembreController@action')->name('membres_search_path');
 
 Route::get('/front/membres/{id}/details','front\MembreController@details');
 
 Route::get('/front/equipes','front\EquipeController@index')->name('equipes_path');
-Route::get('/front/equipes/search','front\EquipeController@search')->name('equipes_search_path');
+Route::get('/front/equipes/search','front\EquipeController@action')->name('equipes_search_path');
 Route::get('/front/equipes/{id}/details','front\EquipeController@details');
 
 Route::get('/front/theses','front\TheseController@index')->name('these_path');
-Route::get('/front/theses/search','front\TheseController@search')->name('these_search_path');
+Route::get('/front/theses/search','front\TheseController@action')->name('these_search_path');
 Route::get('/front/theses/{id}/details','front\TheseController@details');
 
 
