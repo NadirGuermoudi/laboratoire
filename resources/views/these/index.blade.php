@@ -53,8 +53,8 @@
                     <td>{{$these->titre}}</td>
                     <td>{{$these->sujet}}</td>
                     <td>{{$these->user->name}} {{$these->user->prenom}}</td>
-                    <td>{{$these->encadreur_int}} @if($these->encadreur_ext)<br>{{$these->encadreurExterieur->nom}} {{$these->encadreurExterieur->prenom}} @endif</td>
-                    <td>{{$these->coencadreur_int}} @if($these->coencadreur_ext)<br>{{$these->coEncadreurExterieur->nom}} {{$these->coEncadreurExterieur->prenom}} @endif</td>
+                    <td>{{$these->encadreur_int}} @if($these->encadreur_ext)<br><a href="{{ route('contacts.show', $these->encadreur_ext) }}">{{$these->encadreurExterieur->nom}} {{$these->encadreurExterieur->prenom}}</a>@endif</td>
+                    <td>{{$these->coencadreur_int}} @if($these->coencadreur_ext)<br><a href="{{ route('contacts.show', $these->coencadreur_ext) }}">{{$these->coEncadreurExterieur->nom}} {{$these->coEncadreurExterieur->prenom}}</a>@endif</td>
                     <td>{{$these->date_soutenance}}</td>
                     <td>
                       

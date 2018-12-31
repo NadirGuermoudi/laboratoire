@@ -87,7 +87,24 @@
                     </div>
                   </div>
 
-                   
+                  <div class="form-group ">
+                        <label class="col-xs-3 control-label">Membres externes</label>  
+                        <div class="col-xs-9 inputGroupContainer @if($errors->get('membreExt[]')) has-error @endif">
+                          <div style="width: 70%">
+                            <select name="membreExt[]" class="form-control select2" multiple="multiple" data-placeholder="Selectionnez les Membres Externes">
+                              @foreach($article->contacts as $contact)
+                              <option value="{{$contact->id}}" selected>{{$contact->nom}} {{$contact->prenom}}</option>
+                              @endforeach
+
+                              @foreach($contacts as $contact)
+                                <option value="{{$contact->id}}">
+                                  {{$contact->nom}} {{$contact->prenom}}
+                                </option>
+                              @endforeach
+                            </select>
+                          </div>
+                        </div>
+                  </div>
 
                   <div class="form-group ">
                         <label class="col-xs-3 control-label">Ville</label>  
