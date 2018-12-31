@@ -15,5 +15,9 @@ class Contact extends Model
 
 	public function articles(){
 		return $this->belongsToMany('App\Article');
-	}	
+	}
+
+	public function projects(){
+		return $this->belongsToMany('App\Projet', 'project_contact');
+	}
 }
