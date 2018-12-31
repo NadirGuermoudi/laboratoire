@@ -93,7 +93,7 @@
                         <label class="col-xs-3 control-label">Membres internes (*)</label>  
                         <div class="col-xs-9 inputGroupContainer @if($errors->get('membre[]')) has-error @endif">
                           <div style="width: 70%">
-                            <select name="membre[]" class="form-control select2" multiple="multiple">
+                            <select name="membre[]" class="form-control select2" multiple="multiple" data-placeholder="Selectionnez les Membres Internes">
                               
                                @foreach($membres as $membre)
                               <option value="{{$membre->id}}">
@@ -110,17 +110,22 @@
                             </span>
                           </div>
                         </div>
-                  </div> 
+                  </div>
 
                   <div class="form-group ">
                         <label class="col-xs-3 control-label">Membres externes</label>  
-                        <div class="col-xs-9 inputGroupContainer">
+                        <div class="col-xs-9 inputGroupContainer @if($errors->get('membreExt[]')) has-error @endif">
                           <div style="width: 70%">
-                            <input  name="membres_ext" class="form-control" placeholder="Saisir les noms des membres externes separés par ','" type="text" value="{{old('membres_ext')}}">
+                            <select name="membreExt[]" class="form-control select2" multiple="multiple" data-placeholder="Selectionnez les Membres Externes">
+                               @foreach($contacts as $contact)
+                                <option value="{{$contact->id}}">
+                                  {{$contact->nom}} {{$contact->prenom}}
+                                </option>
+                               @endforeach
+                            </select>
                           </div>
                         </div>
-                  </div>  
- 
+                  </div>
 
                   <div class="form-group ">
                         <label class="col-xs-3 control-label">Ville (*)</label>  
