@@ -19,10 +19,6 @@ class ProjetController extends Controller
 		$projets = Projet::all();
 		$membres = User::all();
 		$labo =  Parametre::find('1');
-        $nbr = DB::table('users')
-            ->select(DB::raw('count(*) as total,equipe_id'))
-            ->groupBy('equipe_id')
-            ->get();
             
 		return view('front/projets/projets')->with([
             'labo'=>$labo,

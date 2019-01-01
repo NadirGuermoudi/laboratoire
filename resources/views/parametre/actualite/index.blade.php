@@ -24,10 +24,9 @@
 
 
 	@if($message=Session::get('success'))
-			<div class="alert alert-info">
-				<p> {{ $message }} </p>
-			</div>
-		
+	<div class="p-3 mb-2 bg-info text-dark">
+				<p class="text-center"> {{ $message }} </p> 
+	</div>
 	@endif
 	
 	<div class="nav-tabs-custom col-md-12">

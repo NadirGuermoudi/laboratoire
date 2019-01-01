@@ -13,15 +13,12 @@
 @endsection
 
 @section('content')
-
 <div class="container box">
 	<div class="row">
 		<div class="box-header col-xs-12">
 			<h3 class="box-title"> Actualités </h3>
 		</div>
 	</div>
-	
-	@include('layouts/partials/_menuParametre')
 
 
 	<div class="row">
@@ -30,12 +27,82 @@
 	            <div class="box-header with-border">
 	              <h3 class="box-title"> Informations sur l'actualité </h3>
 	            </div>
-	            <!-- /.box-header -->
+	            {{-- box-header  --}}
 	            <div class="box-body">
+
+	            	<div class="row">
+	            	  <div class="col-md-3">
+	            	    <strong>Titre</strong>
+	            	  </div>
+	            	  <div class="col-md-9">
+	            	    <p class="text-muted">
+	            	      {{$actualite->titre}}
+	            	    </p>
+	            	  </div>
+	            	  </div>
+
+	            	  <div class="row">
+	            	    <div class="col-md-3">
+	            	      <strong>Image</strong>
+	            	    </div>
+	            	    <div class="col-md-9">
+	            	        <img src="{{$actualite->image}}" style="width:100px; height:100px;"class="img-fluid" alt="Responsive image img-thumbnail"> 
+	            	    </div>
+	            	    </div>
+
+	            	    <div class="row">
+	            	      <div class="col-md-3">
+	            	        <strong>Résumé</strong>
+	            	      </div>
+	            	      <div class="col-md-9">
+	            	        <p class="text-muted">
+	            	          {{$actualite->resume}}
+	            	        </p>
+	            	      </div>
+	            	      </div>
+
+	            	      <div class="row">
+	            	        <div class="col-md-3">
+	            	          <strong>contenu</strong>
+	            	        </div>
+	            	        <div class="col-md-9">
+	            	          <p class="text-muted">
+	            	            {{$actualite->contenu}}
+	            	          </p>
+	            	        </div>
+	            	        </div>
+
+	            	        <div class="row">
+	            	          <div class="col-md-3">
+	            	            <strong>Créé le</strong>
+	            	          </div>
+	            	          <div class="col-md-9">
+	            	            <p class="text-muted">
+	            	              {{$actualite->created_at}}
+	            	            </p>
+	            	          </div>
+	            	          </div>
+
+	            	          <div class="row">
+	            	            <div class="col-md-3">
+	            	              <strong>Mis à jour le</strong>
+	            	            </div>
+	            	            <div class="col-md-9">
+	            	              <p class="text-muted">
+	            	                {{$actualite->updated_at}}
+	            	              </p>
+	            	            </div>
+	            	            </div>
+
+
+
+
 	            </div>
 
 
-
-
+	        </div>
+	    </div>
 
 </div>
+
+@endsection

@@ -17,7 +17,7 @@
 @section('content')
 <br/>
 <div class="col-12" style="padding-bottom: 30px">
-    <h2 class="theme-color text-center"> Liste Des Projets Du Laboratoire </h2>
+    <h4 class="theme-color text-center"> Liste Des Projets Du Laboratoire </h4>
 </div>
  
 

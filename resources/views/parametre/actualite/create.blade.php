@@ -1,7 +1,7 @@
 <div class="box-body">
 
 <div class="col-md-12" style="padding-top: 10px;">
-				<form action="{{ route('actualites.store') }}" method="POST">
+				<form action="{{ route('actualites.store') }}" method="POST" enctype="multipart/form-data">
 					@csrf
 
 					<fieldset>
@@ -18,7 +18,7 @@
 						    <label class="col-md-3 control-label"> Image: </label>
 						    <div class="col-md-9 inputGroupContainer">
 						      <div style="width: 70%">
-						        <input name="image" type="file" id="exampleInputFile" >
+						        <input name="image" type="file" />
 						      </div>
 						    </div>
 						</div>
