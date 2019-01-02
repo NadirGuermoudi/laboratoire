@@ -36,7 +36,66 @@ class ArticlesController extends Controller
             'labo'=>$labo,
             'membres'=>$membres
         ]);;
-    } 
+    }
+
+    function action(Request $request)
+    {
+        if ($request->ajax()) {
+            $output = '';
+            $query = $request->get('query');
+            if ($query != '') {
+                $data = Article::where('titre','LIKE','%'.$query.'%')
+                    ->orWhere('resume','LIKE','%'.$query.'%')
+                    ->orWhere('type','LIKE','%'.$query.'%')
+                    ->get();
+
+            } else {
+                $data = Article::all();
+            }
+            $total_row = $data->count();
+            if ($total_row > 0) {
+                foreach ($data as $article) {
+                    $output .= '<div class="col-md-4">
+                    <div class="card bg-light border-secondary "
+                         style="height:15rem; width:23rem; margin: 0px 0px 20px 0px;">
+                        <div class="card-header bg-light border-secondary">
+                            <h6> '. $article->titre.' </h6>
+                        </div>
+                        <div class="card-body text-success border-secondary ">
+                            <h6 class="card-title">
+                                Type: '.$article->type.' </h6>
+                            <p class="card-text">
+                                année: '. $article->annee .'
+                            </p>
+
+                        </div>
+
+                        <div class="card-footer bg-transparent border-success">
+
+                            <a href="'.url("/front/articles/".$article->id."/details").'" class="btn btn-primary ">
+                                Lire plus </a>
+
+                        </div>
+
+                    </div>
+                </div>
+                ';
+                }
+            } else {
+                $output = '
+        <div class="col-12">
+        <h4 class="text-center" >Aucun Resultat Trouver !</h4>
+        </div>
+       ';
+            }
+            $data = array(
+                'table_data' => $output,
+                'total_data' => $total_row
+            );
+
+            echo json_encode($data);
+        }
+    }
 
 	
 
@@ -45,4 +104,3 @@ class ArticlesController extends Controller
 
 
 
-?>

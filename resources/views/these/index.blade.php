@@ -27,14 +27,14 @@
             
           </div>
           </div>
+              @if(Auth::user()->role->nom == 'admin' )
+              <div class=" ">
+              <a href="{{url('theses/create')}}" type="button" class="btn btn-block btn-success btn-sm"><i class="fa fa-plus"></i> Nouvelle thèse</a>
+            </div>
+            @endif
             
             <!-- /.box-header -->
             <div class="box-body">
-              @if(Auth::user()->role->nom == 'admin' )
-              <div class=" pull-right">
-              <a href="{{url('theses/create')}}" type="button" class="btn btn-block btn-success btn-lg"><i class="fa fa-plus"></i> Nouvelle thèse</a>
-            </div>
-            @endif
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -53,8 +53,8 @@
                     <td>{{$these->titre}}</td>
                     <td>{{$these->sujet}}</td>
                     <td>{{$these->user->name}} {{$these->user->prenom}}</td>
-                    <td>{{$these->encadreur_int}}{{$these->encadreur_ext}}</td>
-                    <td>{{$these->coencadreur_int}}{{$these->coencadreur_ext}}</td>
+                    <td>{{$these->encadreur_int}} @if($these->encadreur_ext)<br><a href="{{ route('contacts.show', $these->encadreur_ext) }}">{{$these->encadreurExterieur->nom}} {{$these->encadreurExterieur->prenom}}</a>@endif</td>
+                    <td>{{$these->coencadreur_int}} @if($these->coencadreur_ext)<br><a href="{{ route('contacts.show', $these->coencadreur_ext) }}">{{$these->coEncadreurExterieur->nom}} {{$these->coEncadreurExterieur->prenom}}</a>@endif</td>
                     <td>{{$these->date_soutenance}}</td>
                     <td>
                       
@@ -62,11 +62,11 @@
 
                         {{csrf_field()}}
                         {{method_field('DELETE')}}
-                      <a href="{{ url('theses/'.$these->id.'/details')}}" class="btn btn-info">
+                      <a href="{{ url('theses/'.$these->id.'/details')}}" class="btn btn-info btn-sm">
                         <i class="fa fa-eye"></i>
                       </a>
                       @if(Auth::id() == $these->user->id || Auth::user()->role->nom == 'admin' )
-                      <a href="{{ url('theses/'.$these->id.'/edit')}}" class="btn btn-default">
+                      <a href="{{ url('theses/'.$these->id.'/edit')}}" class="btn btn-default btn-sm">
                         <i class="fa fa-edit"></i>
                       </a>
                       @endif
@@ -75,7 +75,7 @@
                         <i class="fa fa-trash-o"></i>
                       </button> -->
 
-                       <a href="#supprimer{{ $these->id }}Modal" role="button" class="btn btn-danger" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                       <a href="#supprimer{{ $these->id }}Modal" role="button" class="btn btn-danger btn-sm" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
                       <div class="modal fade" id="supprimer{{ $these->id }}Modal" tabindex="-1" role="dialog" aria-labelledby="supprimer{{ $these->id }}ModalLabel" aria-hidden="true">
                           <div class="modal-dialog">
                               <div class="modal-content">

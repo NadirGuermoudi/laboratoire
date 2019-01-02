@@ -27,13 +27,13 @@
           </div>
           </div>
             
-            <!-- /.box-header -->
-            <div class="box-body">
-               @if(Auth::user()->role->nom != 'membre' )
-              <div class=" pull-right">
-                <a href="{{url('projets/create')}}" type="button" class="btn btn-block btn-success btn-lg"><i class="fa fa-plus"></i> Nouveau Projet</a>
+             @if(Auth::user()->role->nom != 'membre' )
+              <div>
+                <a href="{{url('projets/create')}}" type="button" class="btn btn-block btn-success btn-sm"><i class="fa fa-plus"></i> Nouveau Projet</a>
               </div>
              @endif
+            <!-- /.box-header -->
+            <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>

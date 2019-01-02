@@ -57,8 +57,11 @@
                             <strong><i class="fa fa-user margin-r-5"></i> Encadreur</strong>
                         </div>
                         <div class="col-md-9">
-                            {{ $these->encadreur_int}}
-                            {{ $these->encadreur_ext}}
+                            {{ $these->encadreur_int }}
+                            @if($these->encadreur_ext)
+                                <br>
+                                <a href="{{ route('contacts.show', $these->encadreur_ext) }}">{{$these->encadreurExterieur->nom}} {{$these->encadreurExterieur->prenom}}</a>
+                            @endif
                         </div>
 
                         <strong><i class="margin-r-5"></i></strong>
@@ -69,7 +72,10 @@
                         </div>
                         <div class="col-md-9">
                             {{ $these->coencadreur_int }}
-                            {{ $these->coencadreur_ext }}
+                            @if($these->coencadreur_ext)
+                                <br>
+                                <a href="{{ route('contacts.show', $these->coencadreur_ext) }}">{{$these->coEncadreurExterieur->nom}} {{$these->coEncadreurExterieur->prenom}}</a>
+                            @endif
                         </div>
 
                         <strong><i class="margin-r-5"></i></strong>

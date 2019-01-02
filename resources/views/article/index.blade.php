@@ -29,12 +29,12 @@
           </div>
           </div>
             
+              <div>
+                <a href="{{url('articles/create')}}" type="button" class="btn btn-block btn-success btn-sm"><i class="fa fa-plus"> Nouvel article</i></a>
+              </div>
             <!-- /.box-header -->
             <div class="box-body">
            
-              <div class="pull-right">
-                <a href="{{url('articles/create')}}" type="button" class="btn btn-block btn-success btn-lg"><i class="fa fa-plus"> Nouvel article</i></a>
-              </div>
               
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
