@@ -15,7 +15,6 @@ use App\Links;
 
 class ProjetController extends Controller
 {
-
     public function index()
     {
         $projets = Projet::all();

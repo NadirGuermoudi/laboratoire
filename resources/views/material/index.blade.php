@@ -25,8 +25,11 @@
                     <div class="btn-group col-md-12" role="group" aria-label="Basic example">
                         <a href="{{ route('materials.index') }}" class="btn btn-primary btn-sm"><b>Liste des
                                 matériaux</b></a>
-                        <a href="{{ route('materials.borrowed') }}" class="btn btn-primary btn-sm"><b>Liste des
-                                matériaux empruntés</b></a>
+                        <a href="{{ route('materials.borrowed') }}" 
+                        class="btn btn-primary btn-sm">
+                            <b>Liste des
+                                matériaux empruntés
+                            </b></a>
                         @if(Auth::user()->role->nom == 'admin')
                             <a href="{{ route('materials.borrow') }}" class="btn btn-primary btn-sm"><b>Emprunter un
                                     matériel</b></a>
@@ -130,4 +133,6 @@
         </div>
     </div>
     </div>
+
+    
 @endsection

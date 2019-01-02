@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Actualite;
 use App\Parametre;
+use Auth;
 use Illuminate\Http\Request;
 
 class ActualitesController extends Controller
@@ -21,7 +22,10 @@ class ActualitesController extends Controller
 	public function index()
 	{
 		$labo = Parametre::find('1');
-		return view('parametre/actualite/index', compact('labo'));
+
+		$actualites = Actualite::latest()->paginate(5);
+					return view('parametre.actualite.index', compact('actualites','labo'))->with('i', (request()->input('page',1)-1)*5);
+
 	}
 
 	/**
@@ -31,7 +35,7 @@ class ActualitesController extends Controller
 	 */
 	public function create()
 	{
-		//
+		return view('parametre.actualite.create');
 	}
 
 	/**
@@ -42,7 +46,41 @@ class ActualitesController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		//
+		
+		// var_dump($request->except('_token')); die;
+
+		$request->validate([
+						'titre' => 'required',
+						'image' => 'required',
+						'resume' => 'required'
+					]); 
+
+
+		if($request->hasFile('image')){
+		    $file = $request->file('image');
+		    $file_name = time().'.'.$file->getClientOriginalExtension();
+		    $file->move(public_path('/uploads/photo'),$file_name);
+
+		}
+		else{
+		    $file_name="userDefault.png";
+		}
+
+
+					
+					// Actualite::create($request->except('_token'));
+
+					$actualite = new Actualite();
+					$actualite->titre = $request->input('titre');
+					$actualite->resume = $request->input('resume');
+					$actualite->contenu = $request->input('contenu');
+					/* ibrahim: the following line is fixed, i wrote /uploads.. instead 
+					of uploads/... and now I can find the photo without a problem  */
+					$actualite->image = '/uploads/photo/'.$file_name;
+					$actualite->save();
+
+					return redirect()->route('actualites.index')-> with('success', 'l\' actualité a été créé avec succès ');
+
 	}
 
 	/**
@@ -53,7 +91,9 @@ class ActualitesController extends Controller
 	 */
 	public function show(Actualite $actualite)
 	{
-		//
+			/* Note, in my methods, I */
+					$labo = Parametre::find('1');
+					return view('parametre.actualite.details', compact('actualite','labo'));
 	}
 
 	/**
@@ -64,7 +104,9 @@ class ActualitesController extends Controller
 	 */
 	public function edit(Actualite $actualite)
 	{
-		//
+		$labo = Parametre::find('1');
+		return view('parametre.actualite.edit', compact('actualite', 'labo') );
+
 	}
 
 	/**
@@ -76,7 +118,33 @@ class ActualitesController extends Controller
 	 */
 	public function update(Request $request, Actualite $actualite)
 	{
-		//
+		$request->validate([
+			'titre' => 'required',
+			'image' => 'required',
+			'resume' => 'required',
+		]);
+
+		/* This test is kind off useless because we put image required in the request */
+		if($request->hasFile('image')){
+			/* this code is for giving a unique name to the image, and putting this image
+			in the specified directory */
+		    $file = $request->file('image');
+		    $file_name = time().'.'.$file->getClientOriginalExtension();
+		    $file->move(public_path('/uploads/photo'),$file_name);
+
+		}
+		else{
+		    $file_name="userDefault.png";
+		}
+		// $actualite = Actualite::find($id);
+		$actualite->titre = $request->get('titre');
+		$actualite->resume = $request->get('resume');
+		$actualite->contenu = $request->get('contenu');
+		$actualite->image = '/uploads/photo/'.$file_name;
+		$actualite->save();
+
+		return redirect()->route('actualites.index')-> with('success', 'l\' actualité a été mise à jour ');
+
 	}
 
 	/**
@@ -87,6 +155,12 @@ class ActualitesController extends Controller
 	 */
 	public function destroy(Actualite $actualite)
 	{
-		//
+
+					if(Auth::user()->role->nom == 'admin'){
+						Actualite::destroy($actualite->id);
+						return redirect()->route('actualites.index')->with('success', 'Vous avez supprimé une actualité');
+					}
 	}
 }
+
+
