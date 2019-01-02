@@ -14,6 +14,11 @@ use Auth;
 
 class MaterialsController extends Controller
 {
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+	
 	public function category(){
 		$labo = Parametre::find('1');
 		if(Auth::user()->role->nom == 'admin'){

@@ -47,7 +47,7 @@
     <div class="row">
         <div class="col-sm-12">
             <div id="formmessage"></div>
-            <form class="form-horizontal" action="{{url('front/contact')}}" method="POST" novalidate>
+            <form class="form-horizontal" action="{{url('front/contact')}}" method="POST">
 
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                 {{csrf_field()}}

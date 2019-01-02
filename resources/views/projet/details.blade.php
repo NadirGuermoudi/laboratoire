@@ -82,18 +82,32 @@
 
                 <div class="col-md-3">
                   <strong><i class="fa fa-group  margin-r-5"></i>Membres du projet</strong>                
-                 </div>
-                  <div class="col-md-9">
+                </div>
+                <div class="col-md-9">
                     @foreach($membres as $membre)
                     <ul>
                         <li><a href="{{url('membres/'.$membre->id.'/details')}}">{{ $membre->name }} {{ $membre->prenom }}</a></li>
                     </ul>
                     @endforeach
-
-                  </div>  
+                </div>
 
                   <strong><i class="margin-r-5"></i></strong>
                 <hr>
+
+                <div class="col-md-3">
+                  <strong><i class="fa fa-group  margin-r-5"></i>Membres externes du projet</strong>                
+                </div>
+                <div class="col-md-9">
+                    @foreach($projet->contacts as $contact)
+                    <ul>
+                        <li><a href="{{route('contacts.show', $contact->id)}}">{{ $contact->nom }} {{ $contact->prenom }}</a></li>
+                    </ul>
+                    @endforeach
+                </div>
+
+                  <strong><i class="margin-r-5"></i></strong>
+                <hr>
+
                 @if($projet->lien)
                 <div class="row">
                 <div class="col-md-3">

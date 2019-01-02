@@ -7,12 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-     use SoftDeletes;
+	use SoftDeletes;
 
-     protected $dates = ['deleted_at'];
+	protected $dates = ['deleted_at'];
 
-      public function users()
-    {
-        return $this->belongsToMany('App\User');
-    }
+	public function users()
+	{
+		return $this->belongsToMany('App\User');
+	}
+
+	public function contacts(){
+		return $this->belongsToMany('App\Contact');
+	}
 }

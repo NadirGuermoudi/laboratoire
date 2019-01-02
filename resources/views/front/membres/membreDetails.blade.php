@@ -122,7 +122,7 @@
                                 <div class="box-body" style="padding-top: 30px;">
 
 
-                                    <table id="example1" class="table table-bordered table-striped">
+                                    <table id="example1" class="table table-responsive-md table-bordered table-striped">
                                         <thead>
                                         <tr>
                                             <th>Type</th>

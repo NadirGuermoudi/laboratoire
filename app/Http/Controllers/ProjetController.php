@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\projetRequest;
 use App\Projet;
 use App\User;
+use App\Contact;
+use App\ProjectContact;
 use Auth;
 use App\ProjetUser;
 use App\Parametre;
@@ -49,8 +51,8 @@ class ProjetController extends Controller
         if( Auth::user()->role->nom == 'admin')
             {
     	 	 $membres = User::all();
-             $projet = Projet::all();
-    	 	return view('projet.create', ['membres' => $membres],['labo'=>$labo]);
+             $contacts = Contact::all();
+    	 	return view('projet.create', compact('labo', 'membres', 'contacts'));
             }
              else{
                 return view('errors.403',['labo'=>$labo]);
@@ -89,7 +91,15 @@ class ProjetController extends Controller
             $projet_user->user_id = $value;
             $projet_user->save();
 
-         } 
+         }
+
+        $contacts = $request->input('membreExt');
+        foreach ($contacts as $key => $value) {
+            $project_contact = new ProjectContact();
+            $project_contact->projet_id = $projet->id;
+            $project_contact->Contact_id = $value;
+            $project_contact->save();
+        }
 
 	 	return redirect('projets');
 
@@ -99,17 +109,14 @@ class ProjetController extends Controller
     //récuperer un article puis le mettre dans le formulaire
 	 public function edit($id){
 
-	 	$projet = Projet::find($id);
-	 	 $membres = User::all();
-         $labo =  Parametre::find('1');
+        $labo =  Parametre::find('1');
+        $projet = Projet::find($id);
+        $membres = User::all();
+        $contacts = Contact::all();
 
          $this->authorize('update', $projet);
 
-	 	return view('projet.edit')->with([
-            'projet' => $projet,
-            'membres' => $membres,
-            'labo'=>$labo,
-        ]);;
+	 	return view('projet.edit', compact('labo', 'projet', 'membres', 'contacts'));
 	 	
     }
 
@@ -146,9 +153,18 @@ class ProjetController extends Controller
             $projet_user->projet_id = $projet->id;
             $projet_user->user_id = $value;
             $projet_user->save();
+        }
 
-         } 
-
+        $contacts = $request->input('membreExt');
+        $project_contact = ProjectContact::where('projet_id', $id);
+        $project_contact->delete();
+        
+        foreach ($contacts as $key => $value) {
+            $project_contact = new ProjectContact();
+            $project_contact->projet_id = $projet->id;
+            $project_contact->Contact_id = $value;
+            $project_contact->save();
+        }
 
 	 	return redirect('projets');
 

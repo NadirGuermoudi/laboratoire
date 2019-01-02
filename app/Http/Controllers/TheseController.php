@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\These;
 use App\Parametre;
+use App\Contact;
 use App\User;
 use Auth;
 use App\Http\Requests\theseRequest;
@@ -40,10 +41,11 @@ class TheseController extends Controller
     {
         if( Auth::user()->role->nom == 'admin')
             {
-                $membres = User::all();
-                $these = These::all();
                 $labo = Parametre::find('1');
-                return view('these.ajouter',['membres'=>$membres], ['labo'=>$labo]);
+                $membres = User::all();
+                // $these = These::all();
+                $contacts = Contact::all();
+                return view('these.ajouter',compact('labo', 'membres', 'contacts'));
             }
             else{
                 $labo = Parametre::find('1');
@@ -88,19 +90,16 @@ class TheseController extends Controller
     public function edit($id)
     {
         $labo = Parametre::find('1');
-        //if(Auth::id() == $membre->id || Auth::user()->role->nom == 'admin')
-            {
         $these = These::find($id);
-        $membres = User::all();
+        if(Auth::id() == $these->user_id || Auth::user()->role->nom == 'admin')
+        {
+            $membres = User::all();
+            $contacts = Contact::all();
 
-        $this->authorize('update', $these);
+            $this->authorize('update', $these);
 
-        return view('these.edit')->with([ 
-            'these' => $these,
-            'membres'=>$membres,
-            'labo'=>$labo,
-        ]);;
-            }
+            return view('these.edit', compact('labo', 'membres', 'these', 'contacts'));
+        }
     }
     public function update(theseRequest $request , $id)
     {
