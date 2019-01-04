@@ -33,9 +33,9 @@
                 <div class="box-body">
 
                     @if(Auth::user()->role->nom == 'admin' )
-                        <div class=" pull-right" style="padding-bottom: 20px">
+                        <div style="padding-bottom: 20px">
                             <a href="{{url('equipes/create')}}" type="button"
-                               class="btn btn-block btn-success btn-lg"><i class="fa fa-plus"></i> <i
+                               class="btn btn-block btn-success btn-sm"><i class="fa fa-plus"></i> <i
                                         class="fa fa-group"></i> Nouvelle équipe</a>
                         </div>
                     @endif

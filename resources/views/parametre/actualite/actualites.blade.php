@@ -1,7 +1,7 @@
 <div class="box-body">
     {{-- Je dois ajouter le message de succes pour traiter le cas de redirection --}}
 
-                    <table id="example1" class="table table-bordered table-striped " style="width:2000px;">
+                    <table id="example1" class="table table-bordered table-striped ">
                         <thead>
                         <tr>
                             <th> Titre </th>
@@ -164,12 +164,9 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <th>Libellé</th>
-                    <th>Numéro</th>
-                    <th>Disponible</th>
-                    <th>Emprunté par</th>
-                    <th>Disponible le</th>
-                    <th>Actions</th>
+                    <th> Titre </th>
+                    <th> resume </th>
+                    <th> Actions </th>
                 </tr>
                 </tfoot>
                 </table>

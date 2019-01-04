@@ -73,6 +73,8 @@ Route::get('/login', function () {
 });
 
 //nouv
+Route::get('home', 'StatistiqueController@index')->name('home');
+
 Route::resource('actualites', 'ActualitesController');
 
 Route::resource('partenaires', 'PartenaireController');
@@ -135,8 +137,6 @@ Route::put('projets/{id}','ProjetController@update');
 Route::delete('projets/{id}','ProjetController@destroy');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/statistics',function(){
 
