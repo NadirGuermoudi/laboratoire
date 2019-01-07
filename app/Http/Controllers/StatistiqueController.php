@@ -33,6 +33,33 @@ class StatistiqueController extends Controller
 			'partenaires' => $partenaires,
 			'contacts' => $contacts,
 		];
-		return view('statistique/index', compact('labo', 'nombres'));
+
+		$grades = $this->membres();
+		// dd($grades);
+
+		return view('statistique/index', compact('labo', 'nombres', 'grades'));
+	}
+
+	public function membres(){
+		$labo = Parametre::find('1');
+
+		$MAA = DB::table('users')->where('grade', 'MAA')->count();
+		$MAB = DB::table('users')->where('grade', 'MAB')->count();
+		$MCA = DB::table('users')->where('grade', 'MCA')->count();
+		$MCB = DB::table('users')->where('grade', 'MCB')->count();
+		$Doctorant = DB::table('users')->where('grade', 'Doctorant')->count();
+		$Professeur = DB::table('users')->where('grade', 'Professeur')->count();
+
+		$grades = [
+			'MAA' => $MAA,
+			'MAB' => $MAB,
+			'MCA' => $MCA,
+			'MCB' => $MCB,
+			'Doctorant' => $Doctorant,
+			'Professeur' => $Professeur
+		];
+
+		// return $grades;
+		return json_encode($grades);
 	}
 }

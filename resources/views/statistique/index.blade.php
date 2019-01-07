@@ -11,6 +11,11 @@
       </ol>
 @endsection
 
+@push('scripts.footer')
+	<script src="{{ asset('js/chart-js/Chart.bundle.min.js') }}"></script>
+	<script src="{{ asset('js/chart-js/Chart.min.js') }}"></script>
+@endpush
+
 @section('content')
 <div class="container box">
 	<div class="row">
@@ -22,12 +27,12 @@
 	<div class="nav-tabs-custom col-md-12">
 		<ul class="nav nav-tabs">
 			<li class="active"><a href="#generale" data-toggle="tab">Générale</a></li>
-			<li><a href="#membres" data-toggle="tab">Membres</a></li>
-			<li><a href="#theses" data-toggle="tab">Theses</a></li>
-			<li><a href="#articles" data-toggle="tab">Articles</a></li>
-			<li><a href="#projets" data-toggle="tab">Projets</a></li>
-			<li><a href="#materials" data-toggle="tab">Matériels</a></li>
-			<li><a href="#partenaires" data-toggle="tab">Partenaires</a></li>
+			<li><a id="lienMembres" href="#membres" data-toggle="tab">Membres</a></li>
+			<li><a id="lienThese" href="#theses" data-toggle="tab">Theses</a></li>
+			<li><a id="lienArticles" href="#articles" data-toggle="tab">Articles</a></li>
+			<li><a id="lienProjets" href="#projets" data-toggle="tab">Projets</a></li>
+			<li><a id="lienMaterials" href="#materials" data-toggle="tab">Matériels</a></li>
+			<li><a id="lienPartenaires" href="#partenaires" data-toggle="tab">Partenaires</a></li>
 		</ul>
 
 		<div class="tab-content">
@@ -64,8 +69,3 @@
 	</div><!-- fin nav-tabs-custom -->
 </div>
 @endsection
-
-@push('scripts.footer')
-	<script src="{{ asset('js/chart-js/Chart.bundle.min.js') }}"></script>
-	<script src="{{ asset('js/chart-js/Chart.min.js') }}"></script>
-@endpush

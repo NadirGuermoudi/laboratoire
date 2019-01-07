@@ -302,7 +302,7 @@
 	<script src="{{ asset('labo/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
 	<!-- FastClick -->
 	<script src="{{ asset('labo/bower_components/fastclick/lib/fastclick.js') }}"></script>
-	<script src="{{ asset('labo/bower_components/Chart.js/Chart.js') }}"></script>
+	{{-- <script src="{{ asset('labo/bower_components/Chart.js/Chart.js') }}"></script> --}}
 	<!-- AdminLTE App -->
 	<script src="{{ asset('labo/dist/js/adminlte.min.js') }}"></script>
 	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
