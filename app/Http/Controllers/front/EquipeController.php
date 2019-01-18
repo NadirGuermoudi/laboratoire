@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use App\Parametre;
 use App\Equipe;
 use App\User;
+use App\Projet;
 use Auth;
 use Illuminate\Support\Facades\Input;
 
@@ -33,11 +34,14 @@ class EquipeController extends Controller
         $labo = Parametre::find('1');
         $equipe = Equipe::find($id);
         $membres = User::where('equipe_id', $id)->get();
+        $projet = Projet::where('chef_id',$equipe->chef->id)->get();
 
         return view('front.equipe.equipeDetails')->with([
             'equipe' => $equipe,
             'membres' => $membres,
             'labo' => $labo,
+            'projet' => $projet,
+
         ]);
     }
 
