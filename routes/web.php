@@ -73,6 +73,9 @@ Route::get('/login', function () {
 });
 
 //nouv
+
+Route::get('home', 'StatistiqueController@index')->name('home');
+
 Route::resource('actualites', 'ActualitesController');
 
 Route::resource('partenaires', 'PartenaireController');
@@ -136,8 +139,6 @@ Route::delete('projets/{id}','ProjetController@destroy');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/statistics',function(){
 
 	$year = date('Y');
@@ -188,7 +189,7 @@ Route::any('/search',function(){
             'articles' => $articles,
             'projets' => $projets,
             'equipes' => $equipes,
-            'labo'=>$labo,
+            'labo'=> $labo,
             'active' => '',
         ]);
 });

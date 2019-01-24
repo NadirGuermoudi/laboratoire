@@ -101,7 +101,7 @@
                         <label class="col-xs-3 control-label">Encadreur externe</label>  
                         <div class="col-xs-9 inputGroupContainer">
                           <div style="width: 70%">
-                            <select name="encadreur_ext" name="titre" class="form-control" placeholder="Nom" type="text" value="{{ $these->encadreur_ext}}">
+                            <select name="encadreur_ext" name="titre" class="form-control select2" placeholder="Nom" type="text" value="{{ $these->encadreur_ext}}">
                               <option></option>
                               @foreach($contacts as $contact)
                                 <option value="{{$contact->id}}" @if($contact->id == $these->encadreur_ext) selected @endif>{{$contact->nom}} {{$contact->prenom}}</option>
@@ -129,7 +129,7 @@
                         <label class="col-xs-3 control-label">CoEncadreur externe</label>  
                         <div class="col-xs-9 inputGroupContainer">
                           <div style="width: 70%">
-                            <select name="coencadreur_ext" class="form-control" placeholder="Nom" type="text" value="{{$these->coencadreur_ext}}">
+                            <select name="coencadreur_ext" class="form-control select2" placeholder="Nom" type="text" value="{{$these->coencadreur_ext}}">
                               <option></option>
                               @foreach($contacts as $contact)
                                 <option value="{{$contact->id}}" @if($contact->id == $these->coencadreur_ext) selected @endif>{{$contact->nom}} {{$contact->prenom}}</option>
