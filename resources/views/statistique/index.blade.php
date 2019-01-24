@@ -20,19 +20,19 @@
 <div class="container box">
 	<div class="row">
 		<div class="box-header col-xs-12">
-			<h3 class="box-title"> Actualités </h3>
+			<h3 class="box-title"> Statistiques </h3>
 		</div>
 	</div>
 	
 	<div class="nav-tabs-custom col-md-12">
 		<ul class="nav nav-tabs">
 			<li class="active"><a href="#generale" data-toggle="tab">Générale</a></li>
-			<li><a id="lienMembres" href="#membres" data-toggle="tab">Membres</a></li>
-			<li><a id="lienThese" href="#theses" data-toggle="tab">Theses</a></li>
-			<li><a id="lienArticles" href="#articles" data-toggle="tab">Articles</a></li>
-			<li><a id="lienProjets" href="#projets" data-toggle="tab">Projets</a></li>
-			<li><a id="lienMaterials" href="#materials" data-toggle="tab">Matériels</a></li>
-			<li><a id="lienPartenaires" href="#partenaires" data-toggle="tab">Partenaires</a></li>
+			<li><a id="lienMembres" href="#membres" data-toggle="tab" onclick="createPieMombre()">Membres</a></li>
+			<li><a id="lienThese" href="#theses" data-toggle="tab" onclick="createBarThesesThesard()">Theses</a></li>
+			<li><a id="lienArticles" href="#articles" data-toggle="tab" onclick="createBarArticles()">Articles</a></li>
+			<li><a id="lienProjets" href="#projets" data-toggle="tab" onclick="createBarProjets()">Projets</a></li>
+			<li><a id="lienMaterials" href="#materials" data-toggle="tab" onclick="createPieMaterialsEmpruntable()">Matériels</a></li>
+			<li><a id="lienPartenaires" href="#partenaires" data-toggle="tab" onclick="createPiePartenaires()">Partenaires</a></li>
 		</ul>
 
 		<div class="tab-content">

@@ -73,6 +73,7 @@ Route::get('/login', function () {
 });
 
 //nouv
+
 Route::get('home', 'StatistiqueController@index')->name('home');
 
 Route::resource('actualites', 'ActualitesController');
@@ -188,7 +189,7 @@ Route::any('/search',function(){
             'articles' => $articles,
             'projets' => $projets,
             'equipes' => $equipes,
-            'labo'=>$labo,
+            'labo'=> $labo,
             'active' => '',
         ]);
 });
