@@ -69,7 +69,7 @@ class ProjetController extends Controller
                         if ($nbrs->projet_id == $projet->id) {
 
                             $output .= '<div class="col-md-4">
-                    <div class="card bg-light border-secondary " style="margin: 0px 0px 20px 0px;">
+                    <div class="card bg-light border-secondary fadeInLeft animated" data-wow-duration="4s" style="margin: 0px 0px 20px 0px; height: 16rem;">
                         <div class="card-header bg-light border-secondary">
                             <h6 class="text-center"> ' . $projet->intitule . ' </h6>
                             

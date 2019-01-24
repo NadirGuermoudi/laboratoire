@@ -25,6 +25,14 @@
 
         <link rel="stylesheet" type="text/css" href="{{asset('css/plugins-css.css')}}" />
 
+        {{-- ibrahim: the following link and 2 scripts is for the animation --}}
+        <link rel="stylesheet" type="text/css" href="{{asset('css/animation/animate.css')}}" />
+        <script src="css/animation/wow.min.js" />
+        <script>
+            new WOW().init();
+        </script>
+
+
         <!-- Plugins -->
         <link rel="stylesheet" type="text/css" href="{{asset('css/plugins-css.css')}}" />
 
