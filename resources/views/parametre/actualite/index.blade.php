@@ -47,5 +47,5 @@
 		</div><!-- /.tab-content -->
 
 	</div><!-- fin nav-tabs-custom -->
-	
+</div>
 @endsection
