@@ -91,7 +91,8 @@
                                     <div class="row" style="padding-top: 10px">
                                         @if($membre->these)
                                             <div class="col-3" style="margin-top: 10px">
-                                                <strong><i class="fa fa-graduation-cap margin-r-5"></i> Thèse </strong>
+                                                <strong><i class="fa fa-graduation-cap margin-r-5"></i> Thèse
+                                                </strong>
                                             </div>
                                             <div class="col-9" style="padding-top:10px">
                                                 <p class="text-muted">
@@ -128,7 +129,8 @@
                                 <div class="box-body" style="padding-top: 30px;">
 
 
-                                    <table id="example1" class="table table-responsive-md table-bordered table-striped">
+                                    <table id="example1"
+                                           class="table table-responsive-md table-bordered table-striped">
                                         <thead>
                                         <tr>
                                             <th>Type</th>
@@ -158,7 +160,6 @@
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </section>
 @stop

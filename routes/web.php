@@ -26,6 +26,7 @@ Route::get('/front/projets', [
 
 ]);
 
+Route::get('front/recherche','front\RechercheController@index')->name('recherche_path');
 Route::get('front/projets/search','front\ProjetController@action')->name('projet_search_path');
 
 /* routes faits par ibrahim */
@@ -86,6 +87,8 @@ Route::get('materials/borrowed', 'MaterialsController@borrowed')->name('material
 Route::get('materials/history/{id}', 'MaterialsController@history')->name('materials.history');
 Route::put('materials/return/{id}', 'MaterialsController@return')->name('materials.return');
 Route::resource('materials', 'MaterialsController');
+
+Route::resource('message', 'MessageController');
 //fin nouv
 Route::get('dashboard','dashController@index')->name('dashboard');
 Route::get('parametre','ParametreController@index')->name('parametre.index');
