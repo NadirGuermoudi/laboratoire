@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
 use App\Http\Requests\equipeRequest;
 use App\Parametre;
 use App\Equipe;
@@ -16,38 +16,36 @@ class EquipeController extends Controller
         $this->middleware('auth');
     }
 
-    
-    public function index()
-    {  
-    $labo = Parametre::find('1'); 
-    $equipes = Equipe::all();
-     // $nbr = DB::table('users')
-     //            ->groupBy('equipe_id')
-     //            ->count('equipe_id');
 
-    $nbr = DB::table('users')
-             ->select( DB::raw('count(*) as total,equipe_id'))
-             ->groupBy('equipe_id')
-             ->get();
- 
+    public function index()
+    {
+        $labo = Parametre::find('1');
+        $equipes = Equipe::all();
+        // $nbr = DB::table('users')
+        //            ->groupBy('equipe_id')
+        //            ->count('equipe_id');
+
+        $nbr = DB::table('users')
+            ->select(DB::raw('count(*) as total,equipe_id'))
+            ->groupBy('equipe_id')
+            ->get();
+
         return view('equipe.index')->with([
             'equipes' => $equipes,
             'nbr' => $nbr,
-            'labo'=>$labo,
+            'labo' => $labo,
         ]);;
     }
 
     public function create()
     {
         $labo = Parametre::find('1');
-        if( Auth::user()->role->nom == 'admin')
-            {
-            	$membres = User::all(); 
-                return view('equipe.create', ['membres' => $membres] ,['labo'=>$labo]);
-            }
-            else{
-                return view('errors.403' ,['labo'=>$labo]);
-            }
+        if (Auth::user()->role->nom == 'admin') {
+            $membres = User::all();
+            return view('equipe.create', ['membres' => $membres], ['labo' => $labo]);
+        } else {
+            return view('errors.403', ['labo' => $labo]);
+        }
     }
 
     public function details($id)
@@ -59,20 +57,33 @@ class EquipeController extends Controller
         return view('equipe.details')->with([
             'equipe' => $equipe,
             'membres' => $membres,
-            'labo'=>$labo,
+            'labo' => $labo,
         ]);
-    } 
+    }
 
     public function store(equipeRequest $request)
     {
         $labo = Parametre::find('1');
         $equipe = new equipe();
 
+        if ($request->hasFile('img')) {
+            $file = $request->file('img');
+            $file_name = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('/uploads/photo'), $file_name);
+
+
+        }
+        else {
+            $file_name = "photoEquipe.png";
+        }
+
         $equipe->intitule = $request->input('intitule');
         $equipe->resume = $request->input('resume');
         $equipe->achronymes = $request->input('achronymes');
         $equipe->axes_recherche = $request->input('axes_recherche');
         $equipe->chef_id = $request->input('chef_id');
+        $equipe->photo = 'uploads/photo/' . $file_name;
+
 
         $equipe->save();
 
@@ -80,37 +91,41 @@ class EquipeController extends Controller
 
     }
 
-    public function update(equipeRequest $request,$id)
+    public function update(equipeRequest $request, $id)
     {
         $labo = Parametre::find('1');
         $equipe = Equipe::find($id);
 
-        if( Auth::user()->role->nom == 'admin')
-            {
+        if (Auth::user()->role->nom == 'admin') {
+            if ($request->hasFile('img')) {
+                $file = $request->file('img');
+                $file_name = time() . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path('/uploads/photo'), $file_name);
+
+            }
 
             $equipe->intitule = $request->input('intitule');
             $equipe->resume = $request->input('resume');
             $equipe->achronymes = $request->input('achronymes');
             $equipe->axes_recherche = $request->input('axes_recherche');
             $equipe->chef_id = $request->input('chef_id');
+            $equipe->photo = 'uploads/photo/' . $file_name;
 
             $equipe->save();
 
-            return redirect('equipes/'.$id.'/details');
-            }   
-        else{
-                return view('errors.403',['labo'=>$labo]);
-            }
+            return redirect('equipes/' . $id . '/details');
+        } else {
+            return view('errors.403', ['labo' => $labo]);
+        }
 
     }
 
     public function destroy($id)
     {
-        if( Auth::user()->role->nom == 'admin')
-            {
-        $equipe = Equipe::find($id);
-        $equipe->delete();
-        return redirect('equipes');
+        if (Auth::user()->role->nom == 'admin') {
+            $equipe = Equipe::find($id);
+            $equipe->delete();
+            return redirect('equipes');
         }
     }
 

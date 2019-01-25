@@ -109,6 +109,12 @@
                                                     <strong>Coencadreur
                                                         :</strong> {{$membre->these->coencadreur_int}}{{$membre->these->coencadreur_ext}}
                                                 </p>
+                                                <p>
+                                                    <a href="{{url('/front/theses/' . $membre->these->id . '/details')}}"
+                                                       class="btn btn-primary text-center"
+                                                       style="width: 100px;"> Lire
+                                                        plus </a>
+                                                </p>
 
                                             </div>
                                         @endif
@@ -134,8 +140,13 @@
                                         @foreach ($membre->articles as $article)
                                             <tr>
                                                 <td>{{$article->type}}</td>
-                                                <td>{{$article->titre}}</td>
+                                                <td>
+                                                    <a href="{{url('/front/articles/'.$article->id.'/details')}}">{{$article->titre}}
+                                                    </a>
+                                                </td>
                                                 <td>{{$article->annee}}</td>
+
+
                                             </tr>
                                         @endforeach
                                         </tbody>
