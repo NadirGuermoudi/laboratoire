@@ -9,11 +9,11 @@
 	<br/>
   
 
-    <div class="container">
+    <div class="container " id="actualites">
 
     	@foreach($actualites as $actualite)
     	
-    	<div class="row">
+    	<div class="row post fadeInUp animated" id="{{$actualite->id}}">
 
     			<div class="col-md-3 ">
     			   {{-- <img src="/uploads/1523790108.png" class="card-img-top " alt="image" style="width:300px; height:200px;"> --}}
@@ -47,8 +47,37 @@
     	@endforeach
 
     </div>
-
-    	
-
+    <div id="loader" style="display:none;"> <img src="/uploads/photo/loading.gif" style="margin-left: 600px; height:40px; width:80px;" /> 
+    </div>
 
 @stop
+
+@section('script')
+    
+    <script>
+        $(window).scroll(function(){
+            if( $(window).scrollTop() == $(document).height() - $(window).height() )
+            {
+                // alert('{{url('/getMoreActualites/')}}' + '/' +$(".post:last").attr('id'));
+
+                $.ajax({
+                    url: '{{url('/getMoreActualites/')}}' + '/' + $(".post:last").attr('id'),
+                    beforeSend: function(){$("#loader").show();},
+                    success: function(html){
+                        if(html)
+                        {
+                            $("#actualites").append(html);
+                            $("#loader").hide();
+                        }
+                        else
+                        {
+                            $("#loader").hide();
+                        }
+                    }
+                });
+
+            }
+        });
+    </script>
+
+@endsection

@@ -55,10 +55,10 @@ class ArticlesController extends Controller
             $total_row = $data->count();
             if ($total_row > 0) {
                 foreach ($data as $article) {
-                    $output .= '<div class="col-md-4">
+                    $output .= '<div class="col-md-4 fadeInLeft animated">
                     <div class="card bg-light border-secondary "
                          style="height:15rem; width:23rem; margin: 0px 0px 20px 0px;">
-                        <div class="card-header bg-light border-secondary">
+                        <div class="card-header bg-light border-secondary" style="height:5rem;">
                             <h6> '. $article->titre.' </h6>
                         </div>
                         <div class="card-body text-success border-secondary ">

@@ -20,22 +20,22 @@
         </center>
     @endif
 
-    <div class="touch-in white-bg row col-12" style="padding-bottom: 30px;">
-        <div class="col-4">
-            <div class="contact-box text-center">
+    <div class="touch-in white-bg row col-12 zoomInLeft animated" style="padding-bottom: 30px;">
+        <div class="col-4 ">
+            <div class="contact-box text-center slideInLeft animated">
                 <i class="ti-map-alt theme-color"></i>
                 <h5 class="uppercase mt-20">Address</h5>
                 <p class="mt-20">Cite 20 Aout N12 IMAMA, Tlemcen</p>
             </div>
         </div>
-        <div class="col-4">
-            <div class="contact-box text-center">
+        <div class="col-4 ">
+            <div class="contact-box text-center ">
                 <i class="ti-mobile theme-color"></i>
                 <h5 class="uppercase mt-20">Phone</h5>
                 <p class="mt-20"> +(213) 43-12-49</p>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-4 ">
             <div class="contact-box text-center">
                 <i class="ti-email theme-color"></i>
                 <h5 class="uppercase mt-20">Email</h5>
