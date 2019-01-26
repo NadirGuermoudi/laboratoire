@@ -40,6 +40,8 @@ Route::get('/front/articles',[
 	'uses' => 'front\ArticlesController@index'
 
 ]);
+
+
 Route::get('front/articles/search', 'front\ArticlesController@action')->name('article_search_path');
 
 Route::get('front/articles/{id}/details', 'front\ArticlesController@details');
@@ -47,6 +49,7 @@ Route::get('front/articles/{id}/details', 'front\ArticlesController@details');
 
 //route faites par hz
 /* Ibrahim: I modified the route home_path, to associate with it a controller */
+
 Route::get('/', 'front\HomeController@index')->name('home_path');
 
 
@@ -78,6 +81,7 @@ Route::get('/login', function () {
 Route::get('home', 'StatistiqueController@index')->name('home');
 
 Route::resource('actualites', 'ActualitesController');
+Route::resource('actu', 'front\HomeController');
 
 Route::resource('partenaires', 'PartenaireController');
 Route::resource('contacts', 'ContactController');

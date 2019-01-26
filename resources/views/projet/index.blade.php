@@ -37,11 +37,11 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Intitulé</th>
+                  <th style="width:25%;">Intitulé</th>
                   <th>Type</th>
                   <th>Partenaires</th>
                   <th>Chef</th>
-                  <th>Membres</th>
+                  <th style="width:25%;">Membres</th>
                   <th>Actions</th>
                 </tr>
                 </thead>
@@ -61,7 +61,7 @@
                     @endforeach
 
                     </td>
-                    <td>
+                    <td style="text-align:center;" >
 
 
                       <form action="{{ url('projets/'.$projet->id)}}" method="post"> 

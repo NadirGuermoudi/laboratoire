@@ -5,7 +5,7 @@
                         <thead>
                         <tr>
                             <th> Titre </th>
-                            <th> resume </th>
+                            <th> Résumé </th>
                             <th> Actions </th>
                         </tr>
                         </thead>
@@ -164,9 +164,9 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <th> Titre </th>
-                    <th> resume </th>
-                    <th> Actions </th>
+                    <th>Titre</th>
+                    <th>Résumé</th>
+                    <th>Actions</th>
                 </tr>
                 </tfoot>
                 </table>

@@ -30,16 +30,7 @@
 	            {{-- box-header  --}}
 	            <div class="box-body">
 
-	            	<div class="row">
-	            	  <div class="col-md-3">
-	            	    <strong>Titre</strong>
-	            	  </div>
-	            	  <div class="col-md-9">
-	            	    <p class="text-muted">
-	            	      {{$actualite->titre}}
-	            	    </p>
-	            	  </div>
-	            	  </div>
+	            	
 
 	            	  <div class="row">
 	            	    <div class="col-md-3">
@@ -102,6 +93,7 @@
 
 	        </div>
 	    </div>
+	</div>
 
 </div>
 
