@@ -35,7 +35,8 @@
                                 <li class="{{ set_active_route('these_path') }} {{set_active_route('these_search_path')}}">
                                     <a href="{{route('these_path')}}">theses<i
                                                 class="fa fa-indicator"></i></a></li>
-                                <li class="{{ set_active_route('articles-front') }}" ><a href="{{route('articles-front')}}">articles<i
+                                <li class="{{ set_active_route('articles-front') }}"><a
+                                            href="{{route('articles-front')}}">articles<i
                                                 class="fa fa-indicator"></i></a></li>
                                 <li class="{{set_active_route('contact_path')}}"><a href="{{route('contact_path')}}">Contact<i
                                                 class="fa fa-indicator"></i></a></li>
@@ -45,9 +46,11 @@
                                     <div class="search">
                                         <a class="search-btn not_click" href="javascript:void(0);"></a>
                                         <div class="search-box not-click">
-                                            <input type="text" class="not-click form-control" placeholder="Search"
-                                                   value="" name="s">
-                                            <i class="fa fa-search"></i>
+                                            <form action="{{route('recherche_path')}}" method="get">
+                                                <input type="text" class="not-click form-control" placeholder="Search"
+                                                       value="" name="search">
+                                                <i class="fa fa-search"></i>
+                                            </form>
                                         </div>
                                     </div>
                                 </li>

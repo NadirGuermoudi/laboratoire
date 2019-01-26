@@ -100,7 +100,7 @@
       </div>
 
       <div class="tab-pane" id="modifier">
-          <form class="well form-horizontal" action="{{url('equipes/'. $equipe->id) }} " method="post"  id="contact_form">
+          <form class="well form-horizontal" action="{{url('equipes/'. $equipe->id) }} " method="post" enctype="multipart/form-data"  id="contact_form">
             <input type="hidden" name="_method" value="PUT">
               {{ csrf_field() }}
               <fieldset>
@@ -153,6 +153,16 @@
                         <div style="width: 70%">
                           <textarea name="axe_recherche" class="form-control" rows="3" placeholder="Entrez ...">{{$equipe->axes_recherche}}</textarea>
                         </div>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label class="col-md-3 control-label">Photo</label>
+                      <div class="col-md-2"></div>
+                      <div class="col-md-5 inputGroupContainer">
+                          <div style="width: 70%">
+                              <input name="img" type="file">
+                          </div>
                       </div>
                   </div>
  

@@ -12,7 +12,28 @@
 	</ol>
 @endsection
 
+@push('scripts.footer')
+<script type="text/javascript">
+	function dinamiqueME(myRadio){
+		// alert('salut'+ myRadio.value);
+		if(myRadio.value == 'user'){
+			$('#membre').show();
+			$('#equipe').hide();
+		}else{
+			$('#equipe').show();
+			$('#membre').hide();
+		}
+	}
+
+	$(document).ready(function(){
+		$('#equipe').hide();
+	});
+	// alert("helo");
+</script>
+@endpush
+
 @section('content')
+
 <div class="row">
   <div class="col-md-12">
 	<div class="box col-xs-12">
@@ -43,9 +64,9 @@
 							<div class="col-xs-12 inputGroupContainer @if($errors->get('numero')) has-error @endif">
 								<div style="width: 70%">
 									<center>
-									<input  name="borrower" class="flat-red" placeholder="" type="radio" value="user" checked>
+									<input  name="borrower" onclick="dinamiqueME(this);" id="ckm" type="radio" value="user" checked>
 									<label for="equipe">Membre</label>
-									<input  name="borrower" class="flat-red" placeholder="Numéro" type="radio" value="equipe">
+									<input  name="borrower" onclick="dinamiqueME(this);" id="cke" type="radio" value="equipe">
 									<label for="equipe">Equipe</label>
 									</center>
 								</div>
@@ -66,7 +87,7 @@
 							</div>
 						</div>
 						<br>
-						<div class="form-group ">
+						<div class="form-group " id="membre">
 							<label class="col-xs-3 control-label">Membre (*)</label>
 							<div class="col-xs-9 inputGroupContainer @if($errors->get('user')) has-error @endif">
 								<div style="width: 70%">
@@ -80,7 +101,7 @@
 							</div>
 						</div>
 						<br>
-						<div class="form-group ">
+						<div class="form-group " id="equipe">
 							<label class="col-xs-3 control-label">Equipe (*)</label>
 							<div class="col-xs-9 inputGroupContainer @if($errors->get('equipe')) has-error @endif">
 								<div style="width: 70%">

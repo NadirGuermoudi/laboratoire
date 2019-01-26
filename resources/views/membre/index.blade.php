@@ -29,15 +29,15 @@
                     </div>
                 </div>
 
-                <!-- /.box-header -->
-                <div class="box-body">
                     @if(Auth::user()->role->nom == 'admin' )
-                        <div class=" pull-right">
+                        <div>
                             <a href="{{url('membres/create')}}" type="button"
-                               class="btn btn-block btn-success btn-lg"><i class="fa fa-user-plus"></i> Nouveau
+                               class="btn btn-block btn-success btn-sm"><i class="fa fa-user-plus"></i> Nouveau
                                 membre</a>
                         </div>
-                @endif
+                    @endif
+                <!-- /.box-header -->
+                <div class="box-body">
                 <!--
                <div>
                  <button href="{{('excel')}}">Excel</button>

@@ -26,6 +26,7 @@ Route::get('/front/projets', [
 
 ]);
 
+Route::get('front/recherche','front\RechercheController@index')->name('recherche_path');
 Route::get('front/projets/search','front\ProjetController@action')->name('projet_search_path');
 
 /* routes faits par ibrahim */
@@ -76,6 +77,9 @@ Route::get('/login', function () {
 });
 
 //nouv
+
+Route::get('home', 'StatistiqueController@index')->name('home');
+
 Route::resource('actualites', 'ActualitesController');
 Route::resource('actu', 'front\HomeController');
 
@@ -90,6 +94,8 @@ Route::get('materials/borrowed', 'MaterialsController@borrowed')->name('material
 Route::get('materials/history/{id}', 'MaterialsController@history')->name('materials.history');
 Route::put('materials/return/{id}', 'MaterialsController@return')->name('materials.return');
 Route::resource('materials', 'MaterialsController');
+
+Route::resource('message', 'MessageController');
 //fin nouv
 Route::get('dashboard','dashController@index')->name('dashboard');
 Route::get('parametre','ParametreController@index')->name('parametre.index');
@@ -139,8 +145,6 @@ Route::put('projets/{id}','ProjetController@update');
 Route::delete('projets/{id}','ProjetController@destroy');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/statistics',function(){
 
@@ -192,7 +196,7 @@ Route::any('/search',function(){
             'articles' => $articles,
             'projets' => $projets,
             'equipes' => $equipes,
-            'labo'=>$labo,
+            'labo'=> $labo,
             'active' => '',
         ]);
 });

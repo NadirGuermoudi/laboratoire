@@ -91,7 +91,8 @@
                                     <div class="row" style="padding-top: 10px">
                                         @if($membre->these)
                                             <div class="col-3" style="margin-top: 10px">
-                                                <strong><i class="fa fa-graduation-cap margin-r-5"></i> Thèse </strong>
+                                                <strong><i class="fa fa-graduation-cap margin-r-5"></i> Thèse
+                                                </strong>
                                             </div>
                                             <div class="col-9" style="padding-top:10px">
                                                 <p class="text-muted">
@@ -109,6 +110,12 @@
                                                     <strong>Coencadreur
                                                         :</strong> {{$membre->these->coencadreur_int}}{{$membre->these->coencadreur_ext}}
                                                 </p>
+                                                <p>
+                                                    <a href="{{url('/front/theses/' . $membre->these->id . '/details')}}"
+                                                       class="btn btn-primary text-center"
+                                                       style="width: 100px;"> Lire
+                                                        plus </a>
+                                                </p>
 
                                             </div>
                                         @endif
@@ -122,7 +129,8 @@
                                 <div class="box-body" style="padding-top: 30px;">
 
 
-                                    <table id="example1" class="table table-responsive-md table-bordered table-striped">
+                                    <table id="example1"
+                                           class="table table-responsive-md table-bordered table-striped">
                                         <thead>
                                         <tr>
                                             <th>Type</th>
@@ -134,8 +142,13 @@
                                         @foreach ($membre->articles as $article)
                                             <tr>
                                                 <td>{{$article->type}}</td>
-                                                <td>{{$article->titre}}</td>
+                                                <td>
+                                                    <a href="{{url('/front/articles/'.$article->id.'/details')}}">{{$article->titre}}
+                                                    </a>
+                                                </td>
                                                 <td>{{$article->annee}}</td>
+
+
                                             </tr>
                                         @endforeach
                                         </tbody>
@@ -147,7 +160,6 @@
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </section>
 @stop

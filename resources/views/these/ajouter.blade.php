@@ -107,7 +107,7 @@
                         <label class="col-xs-3 control-label">Encadreur externe</label>  
                         <div class="col-xs-9 inputGroupContainer">
                           <div style="width: 70%">
-                            <select name="encadreur_ext" class="form-control" placeholder="Nom" type="text" value="">
+                            <select name="encadreur_ext" class="form-control select2" placeholder="Nom" type="text" value="">
                               @foreach($contacts as $contact)
                                 <option></option>
                                 <option value="{{$contact->id}}">{{$contact->nom}} {{$contact->prenom}}</option>
@@ -136,7 +136,7 @@
                         <label class="col-xs-3 control-label">CoEncadreur externe</label>  
                         <div class="col-xs-9 inputGroupContainer">
                           <div style="width: 70%">
-                            <select name="coencadreur_ext" class="form-control" placeholder="Nom" type="text" value="">
+                            <select name="coencadreur_ext" class="form-control select2" placeholder="Nom" type="text" value="">
                               @foreach($contacts as $contact)
                                 <option></option>
                                 <option value="{{$contact->id}}">{{$contact->nom}} {{$contact->prenom}}</option>

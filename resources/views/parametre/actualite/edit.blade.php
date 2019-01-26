@@ -42,34 +42,33 @@
 									</div>
 								</div>
 							</div>
-
-							<div class="form-group">
-							    <label class="col-md-3 control-label"> Image: </label>
-							    <div class="col-md-9 inputGroupContainer">
-							      <div style="width: 70%">
-							        <input name="image" type="file" />
-							      </div>
-							    </div>
-							</div>
-
+							<br>
 							<div class="form-group ">
 								<label class="col-xs-3 control-label"> Résumé (*) </label>
 								<div class="col-xs-9 inputGroupContainer">
 									<div style="width: 70%">
-										<input name="resume" class="form-control" value=" {{$actualite->resume}} " type="text" />
+										<textarea name="resume" class="form-control" type="text">{{$actualite->resume}}</textarea>
 									</div>
 								</div>
 							</div>
-
+							<br>
 							<div class="form-group ">
 								<label class="col-xs-3 control-label"> Contenu (*) </label>
 								<div class="col-xs-9 inputGroupContainer">
 									<div style="width: 70%">
-										<input name="contenu" class="form-control" value=" {{$actualite->contenu}} " type="text" />
+										<textarea name="contenu" class="form-control" type="text">{{$actualite->contenu}}</textarea>
 									</div>
 								</div>
 							</div>
-
+							<br>
+							<div class="form-group">
+							    <label class="col-md-3 control-label"> Image: </label>
+							    <div class="col-md-9 inputGroupContainer">
+							      <div style="width: 70%">
+							        <input name="image" type="file" placeholder="image" />
+							      </div>
+							    </div>
+							</div>
 							
 						</fieldset>
 
