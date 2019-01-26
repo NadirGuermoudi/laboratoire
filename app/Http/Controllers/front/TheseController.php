@@ -59,7 +59,7 @@ class TheseController extends Controller
 
             if ($total_row > 0) {
                 foreach ($data as $these) {
-                    $output .= '<div class="col-md-6" style="padding-bottom: 30px">
+                    $output .= '<div class="col-md-6 fadeInLeft animated" style="padding-bottom: 30px">
                             <div class="card-content">
                                 <div class="card-desc card">
                                     <a href="'.url("front/theses/".$these->id."/details").'"><h5

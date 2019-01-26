@@ -62,7 +62,7 @@ class MembreController extends Controller
                 foreach ($data as $row) {
                     $output .= '
                                
-                            <div class="col-lg-3 col-md-3 col-sm-6 sm-mb-30" style="padding-bottom: 20px">
+                            <div class="col-lg-3 col-md-3 col-sm-6 sm-mb-30 fadeInLeft animated" style="padding-bottom: 20px">
                                     <div class="team team-round-shadow border">
                                     <div class="team-photo">
                                     <img style="height: 100px; width: 100px;" class="img-fluid center-block"

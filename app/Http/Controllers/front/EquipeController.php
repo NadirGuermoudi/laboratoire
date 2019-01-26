@@ -92,7 +92,7 @@ class EquipeController extends Controller
 
                                 <div class="col-12 col-md-12" style="padding-right: 30px;padding-bottom: 30px;">
                                     <div class="box box-widget widget-user ">
-                                        <div class="row card ">
+                                        <div class="row card fadeInLeft animated">
                                             <div class="col-12 text-center card-header "
                                                  style="background-color: #dff0d8;">
                                                 <div class="widget-user-header text-center">

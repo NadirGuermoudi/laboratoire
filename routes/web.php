@@ -82,6 +82,8 @@ Route::get('home', 'StatistiqueController@index')->name('home');
 
 Route::resource('actualites', 'ActualitesController');
 Route::resource('actu', 'front\HomeController');
+// Route::get('/{id}', 'front/HomeController@action');
+Route::get('/getMoreActualites/{id}', 'front\HomeController@action');
 
 Route::resource('partenaires', 'PartenaireController');
 Route::resource('contacts', 'ContactController');

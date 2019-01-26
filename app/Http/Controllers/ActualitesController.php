@@ -78,7 +78,7 @@ class ActualitesController extends Controller
 					of uploads/... and now I can find the photo without a problem  */
 					$actualite->image = '/uploads/photo/'.$file_name;
 					$actualite->save();
-
+					
 					return redirect()->route('actualites.index')-> with('success', 'l\' actualité a été créé avec succès ');
 
 	}

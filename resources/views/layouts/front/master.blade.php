@@ -93,7 +93,7 @@
 
         {{-- custom comment --}}
         <script type="text/javascript" src="{{ asset('js/revolution/custom.js') }}"></script>
-
+        @yield('script')
     </body>
+    
 </html>
-@yield('script')
