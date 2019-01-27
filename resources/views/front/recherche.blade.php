@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-4 col-md-4 col-sm-4 ">
             </div>
-            <div class="pull-right col-7 col-sm-7 col-md-7" style="padding-bottom: 30px">
+            <div class=" col-12 col-sm-7 col-md-7" style="padding-bottom: 30px">
 
                 <form action="{{route("recherche_path")}}" method="get">
                     <input class="border form-control form-control-sm mr-3 w-75"
@@ -19,17 +19,58 @@
                            id="search"
                            name="search" placeholder="Rechercher"
                            aria-label="Search">
+                    <div class="mr-3 w-75" style="padding-top: 10px"></div>
+                    <div class="border form-control form-control-sm mr-3 w-75 text-center" id="ravi">
+                        <input style="" type="checkbox" id="ra" autocomplete="off">
+                        <span style="padding-right: 15px">recherche Avancee</span>
+                    </div>
+                    <div class="border form-control form-control-sm mr-3 w-75" id="rAD" style="display: none">
+                        <input style="" type="checkbox" name="actualite">
+                        <span style="padding-right: 15px">actualite</span>
+                        <input type="checkbox" name="membres">
+                        <span style="padding-right: 15px">membres</span>
+                        <input type="checkbox" name="theses">
+                        <span style="padding-right: 15px">theses</span>
+                        <input type="checkbox" name="articles">
+                        <span style="padding-right: 15px">articles</span>
+                        <input type="checkbox" name="projets" >
+                        <span style="padding-right: 15px">projets</span>
+                        <input type="checkbox" name="equipes">
+                        <span style="padding-right: 15px">equipes</span>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
+
+    {{--<div class="col-12" style="padding-left: 90px">--}}
+    {{--<h6>Recherche avancee</h6>--}}
+    {{--</div>--}}
+
+    {{--<div class="col-12 text-center">--}}
+    {{--<form method="" action="">--}}
+    {{--<input type="checkbox" id="membres">--}}
+    {{--<span>actualite</span>--}}
+    {{--<input type="checkbox" id="membres">--}}
+    {{--<span>membres</span>--}}
+    {{--<input type="checkbox" id="membres">--}}
+    {{--<span>theses</span>--}}
+    {{--<input type="checkbox" id="membres">--}}
+    {{--<span>articles</span>--}}
+    {{--<input type="checkbox" id="membres">--}}
+    {{--<span>projets</span>--}}
+    {{--<input type="checkbox" id="membres">--}}
+    {{--<span>equipes</span>--}}
+    {{--<input type="submit" value="recherche">--}}
+    {{--</form>--}}
+    {{--</div>--}}
     @if($nbrResultatTrouver == 0)
         <div class="col-12 text-center" style="padding-bottom: 30px">
             <h5>Aucun Resultat Trouver Pour ' {{$q}} '</h5>
         </div>
     @else
         <div class="col-12 text-center" style="padding-bottom: 30px">
-            <h4>{{$nbrResultatTrouver}} Resulta Trouver Pour ' {{$q}} '</h4>
+            <h4>{{$nbrResultatTrouver}} Resultas Trouver Pour ' {{$q}} '</h4>
         </div>
     @endif
 
@@ -76,6 +117,48 @@
             </table>
         @endif
     @endif
+
+    @if(count($actu) > 0)
+        @if(isset($actu))
+            <div class="col-12" style="padding-bottom: 30px">
+                <h4 class="theme-color">{{count($actu)}} Actualités:</h4>
+            </div>
+            <table align="center" style="padding-bottom: 30px"
+                   class="table table-bordered table-striped col-10 text-center">
+                <thead>
+                <tr>
+                    <th>titre</th>
+                    <th>Resume</th>
+                    <th>created at</th>
+                    <th>voir plus</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($actu  as $a)
+                    <tr>
+                        <td>{{$a->titre}}</td>
+                        <td>{{$a->resume}}</td>
+                        <td>{{$a->created_at}}</td>
+                        <td>
+                            <div class="btn-group">
+
+                                <form method="post">
+
+                                    <a href="{{ url('actu/'.$a->id)}}"
+                                       class="btn btn-info">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        @endif
+    @endif
+
     @if(count($theses) > 0)
         @if(isset($theses))
             <div class="col-12" style="padding-top: 30px">
@@ -239,4 +322,13 @@
             </table>
         @endif
     @endif
+@stop
+
+@section('script')
+    <script type="text/javascript">
+        $('#ra').change(function() {
+            $('#ravi').hide();
+            $('#rAD').show();
+        });
+    </script>
 @stop

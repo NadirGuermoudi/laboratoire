@@ -16,7 +16,7 @@
                     <h3 class="theme-color text-center">Details {{$equipe->intitule}}</h3>
                 </div>
 
-                @if($equipe->photo != ' ')
+                @if($equipe->photo != null)
                 <div class="col-12" style="height:30px;"></div>
 
                 <div class="col-12 col-sm-12 text-center">

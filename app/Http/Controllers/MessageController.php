@@ -18,7 +18,7 @@ class MessageController extends Controller
     public function index()
     {
         $labo = Parametre::find('1');
-        $messages = Message::all();
+        $messages = Message::orderBy('created_at','desc')->get();
         return view('parametre.contact.message', compact('labo', 'messages'));
     }
 

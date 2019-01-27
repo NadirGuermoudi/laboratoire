@@ -130,75 +130,88 @@
           @if(count($membres) > 0)
             @if(isset($membres))
 
-            <h3>Membres:</h3><br>
-              <table  class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>Nom</th>
-                  <th>Prénom</th>
-                  <th>Email</th>
-                  <th>Grade</th>
-                  <th>Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                  @foreach($membres  as $membre)
-                  <tr>
-                    <td>{{$membre->name}}</td>
-                    <td>{{$membre->prenom}}</td>
-                    <td>{{$membre->email}}</td>
-                    <td>{{$membre->grade}}</td>
-                    <td>
-                      <div class="btn-group">
-                        
-                        <form action="{{ url('membres/'.$membre->id)}}" method="post">
-                            {{csrf_field()}}
-                            {{method_field('DELETE')}}
+                      <h3>Membres:</h3><br>
+                      <table class="table table-bordered table-striped">
+                          <thead>
+                          <tr>
+                              <th>Nom</th>
+                              <th>Prénom</th>
+                              <th>Email</th>
+                              <th>Grade</th>
+                              <th>Action</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          @foreach($membres  as $membre)
+                              <tr>
+                                  <td>{{$membre->name}}</td>
+                                  <td>{{$membre->prenom}}</td>
+                                  <td>{{$membre->email}}</td>
+                                  <td>{{$membre->grade}}</td>
+                                  <td>
+                                      <div class="btn-group">
 
-                            <a href="{{ url('membres/'.$membre->id.'/details')}}" class="btn btn-info">
-                              <i class="fa fa-eye"></i>
-                            </a>
-                             @if(Auth::id() == $membre->id || Auth::user()->role->nom == 'admin' )
-                            <a href="{{url('membres/'.$membre->id.'/edit')}}" class="btn btn-default">
-                              <i class="fa fa-edit"></i>
-                            </a>
-                            @endif
-                            @if(Auth::id() != $membre->id && Auth::user()->role->nom != 'membre' )
-                            <!-- <button  type="submit" class="btn btn-danger ">
+                                          <form action="{{ url('membres/'.$membre->id)}}" method="post">
+                                              {{csrf_field()}}
+                                              {{method_field('DELETE')}}
+
+                                              <a href="{{ url('membres/'.$membre->id.'/details')}}"
+                                                 class="btn btn-info">
+                                                  <i class="fa fa-eye"></i>
+                                              </a>
+                                              @if(Auth::id() == $membre->id || Auth::user()->role->nom == 'admin' )
+                                                  <a href="{{url('membres/'.$membre->id.'/edit')}}"
+                                                     class="btn btn-default">
+                                                      <i class="fa fa-edit"></i>
+                                                  </a>
+                                              @endif
+                                              @if(Auth::id() != $membre->id && Auth::user()->role->nom != 'membre' )
+                                              <!-- <button  type="submit" class="btn btn-danger ">
                                 <i class="fa fa-trash-o"></i>
                             </button> -->
 
-                             <a href="#supprimer{{ $membre->id }}Modal" role="button" class="btn btn-danger" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
-                          <div class="modal fade" id="supprimer{{ $membre->id }}Modal" tabindex="-1" role="dialog" aria-labelledby="supprimer{{ $membre->id }}ModalLabel" aria-hidden="true">
-                              <div class="modal-dialog">
-                                  <div class="modal-content">
-                                      <div class="modal-header">
-                                        <!--   <h5 class="modal-title" id="supprimer{{ $membre->id }}ModalLabel">Supprimer</h5> -->
-                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                              <span aria-hidden="true">&times;</span>
-                                          </button>
-                                      </div>
-                                      <div class="modal-body text-center">
-                                          Voulez-vous vraiment effectuer la suppression ? 
-                                      </div>
-                                      <div class="modal-footer">
-                                          <form class="form-inline" action="{{ url('membres/'.$membre->id)}}"  method="POST">
-                                              @method('DELETE')
-                                              @csrf
-                                          <button type="button" class="btn btn-light" data-dismiss="modal">Non</button>
-                                              <button type="submit" class="btn btn-danger">Oui</button>
+                                                  <a href="#supprimer{{ $membre->id }}Modal" role="button"
+                                                     class="btn btn-danger" data-toggle="modal"><i
+                                                              class="fa fa-trash-o"></i></a>
+                                                  <div class="modal fade" id="supprimer{{ $membre->id }}Modal"
+                                                       tabindex="-1" role="dialog"
+                                                       aria-labelledby="supprimer{{ $membre->id }}ModalLabel"
+                                                       aria-hidden="true">
+                                                      <div class="modal-dialog">
+                                                          <div class="modal-content">
+                                                              <div class="modal-header">
+                                                              <!--   <h5 class="modal-title" id="supprimer{{ $membre->id }}ModalLabel">Supprimer</h5> -->
+                                                                  <button type="button" class="close"
+                                                                          data-dismiss="modal" aria-label="Close">
+                                                                      <span aria-hidden="true">&times;</span>
+                                                                  </button>
+                                                              </div>
+                                                              <div class="modal-body text-center">
+                                                                  Voulez-vous vraiment effectuer la suppression ?
+                                                              </div>
+                                                              <div class="modal-footer">
+                                                                  <form class="form-inline"
+                                                                        action="{{ url('membres/'.$membre->id)}}"
+                                                                        method="POST">
+                                                                      @method('DELETE')
+                                                                      @csrf
+                                                                      <button type="button" class="btn btn-light"
+                                                                              data-dismiss="modal">Non
+                                                                      </button>
+                                                                      <button type="submit" class="btn btn-danger">Oui
+                                                                      </button>
+                                                                  </form>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+
+                                              @endif
                                           </form>
                                       </div>
-                                  </div>
-                              </div>
-                          </div>
-
-                            @endif
-                        </form>
-                      </div>
-                    </td>
-                  </tr>
-                  @endforeach
+                                  </td>
+                              </tr>
+                          @endforeach
                    
                 </tbody>
                 <tfoot>
