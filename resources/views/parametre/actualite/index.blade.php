@@ -6,7 +6,7 @@
 	<h1>Paramètres</h1>
 
 	<ol class="breadcrumb">
-		<li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+		<li><a href="{{route('home')}}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
 		<li><a href="{{route('parametre.index')}}"></i> Paramètres </a></li>
 		<li class="active"><a href="{{route('parametre.index')}}">Informations du Laboratoire</a></li>
 	</ol>
