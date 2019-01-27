@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-4 col-md-4 col-sm-4 ">
             </div>
-            <div class="pull-right col-7 col-sm-7 col-md-7" style="padding-bottom: 30px">
+            <div class=" col-12 col-sm-7 col-md-7" style="padding-bottom: 30px">
 
                 <form action="{{route("recherche_path")}}" method="get">
                     <input class="border form-control form-control-sm mr-3 w-75"
@@ -20,7 +20,7 @@
                            name="search" placeholder="Rechercher"
                            aria-label="Search">
                     <div class="mr-3 w-75" style="padding-top: 10px"></div>
-                    <div class="border form-control form-control-sm mr-3 w-75">
+                    <div class="border form-control form-control-sm mr-3 w-75 text-center" id="ravi">
                         <input style="" type="checkbox" id="ra" autocomplete="off">
                         <span style="padding-right: 15px">recherche Avancee</span>
                     </div>
@@ -327,6 +327,7 @@
 @section('script')
     <script type="text/javascript">
         $('#ra').change(function() {
+            $('#ravi').hide();
             $('#rAD').show();
         });
     </script>

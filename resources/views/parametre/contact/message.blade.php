@@ -29,6 +29,8 @@
                     <th>email</th>
                     <th>numero</th>
                     <th>message</th>
+                    <th>date</th>
+                    <th>supprime</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -40,6 +42,7 @@
                         <td>{{$message->email}}</td>
                         <td>{{ $message->numero_de_tel }}</td>
                         <td>{{ $message->message }}</td>
+                        <td>{{ $message->created_at }}</td>
                         <td>
 
                             @if(Auth::user()->role->nom == 'admin')
@@ -82,20 +85,14 @@
                             @endif
 
                         </td>
+
                     </tr>
                 @endforeach
 
 
                 </tbody>
 
-                <tfoot>
-                <tr>
-                    <th>nom</th>
-                    <td>email</td>
-                    <th>numero</th>
-                    <th>message</th>
-                </tr>
-                </tfoot>
+
             </table>
 
         </div>
