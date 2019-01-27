@@ -35,7 +35,9 @@ class ActualitesController extends Controller
 	 */
 	public function create()
 	{
-		return view('parametre.actualite.create');
+		if(Auth::user()->role->nom == 'admin'){
+			return view('parametre.actualite.create');
+		}
 	}
 
 	/**
@@ -48,38 +50,36 @@ class ActualitesController extends Controller
 	{
 		
 		// var_dump($request->except('_token')); die;
+		if(Auth::user()->role->nom == 'admin'){
+			$request->validate([
+							'titre' => 'required',
+							'image' => 'required',
+							'resume' => 'required'
+						]); 
 
-		$request->validate([
-						'titre' => 'required',
-						'image' => 'required',
-						'resume' => 'required'
-					]); 
+			if($request->hasFile('image')){
+			    $file = $request->file('image');
+			    $file_name = time().'.'.$file->getClientOriginalExtension();
+			    $file->move(public_path('/uploads/photo'),$file_name);
 
+			}
+			else{
+			    $file_name="userDefault.png";
+			}
+						
+			// Actualite::create($request->except('_token'));
 
-		if($request->hasFile('image')){
-		    $file = $request->file('image');
-		    $file_name = time().'.'.$file->getClientOriginalExtension();
-		    $file->move(public_path('/uploads/photo'),$file_name);
-
+			$actualite = new Actualite();
+			$actualite->titre = $request->input('titre');
+			$actualite->resume = $request->input('resume');
+			$actualite->contenu = $request->input('contenu');
+			/* ibrahim: the following line is fixed, i wrote /uploads.. instead 
+			of uploads/... and now I can find the photo without a problem  */
+			$actualite->image = '/uploads/photo/'.$file_name;
+			$actualite->save();
+			
+			return redirect()->route('actualites.index')-> with('success', 'l\' actualité a été créé avec succès ');
 		}
-		else{
-		    $file_name="userDefault.png";
-		}
-
-
-					
-					// Actualite::create($request->except('_token'));
-
-					$actualite = new Actualite();
-					$actualite->titre = $request->input('titre');
-					$actualite->resume = $request->input('resume');
-					$actualite->contenu = $request->input('contenu');
-					/* ibrahim: the following line is fixed, i wrote /uploads.. instead 
-					of uploads/... and now I can find the photo without a problem  */
-					$actualite->image = '/uploads/photo/'.$file_name;
-					$actualite->save();
-					
-					return redirect()->route('actualites.index')-> with('success', 'l\' actualité a été créé avec succès ');
 
 	}
 
@@ -104,9 +104,10 @@ class ActualitesController extends Controller
 	 */
 	public function edit(Actualite $actualite)
 	{
-		$labo = Parametre::find('1');
-		return view('parametre.actualite.edit', compact('actualite', 'labo') );
-
+		if(Auth::user()->role->nom == 'admin'){
+			$labo = Parametre::find('1');
+			return view('parametre.actualite.edit', compact('actualite', 'labo') );
+		}
 	}
 
 	/**
@@ -118,33 +119,34 @@ class ActualitesController extends Controller
 	 */
 	public function update(Request $request, Actualite $actualite)
 	{
-		$request->validate([
-			'titre' => 'required',
-			'image' => 'required',
-			'resume' => 'required',
-		]);
+		if(Auth::user()->role->nom == 'admin'){
+			$request->validate([
+				'titre' => 'required',
+				'image' => 'required',
+				'resume' => 'required',
+			]);
 
-		/* This test is kind off useless because we put image required in the request */
-		if($request->hasFile('image')){
-			/* this code is for giving a unique name to the image, and putting this image
-			in the specified directory */
-		    $file = $request->file('image');
-		    $file_name = time().'.'.$file->getClientOriginalExtension();
-		    $file->move(public_path('/uploads/photo'),$file_name);
+			/* This test is kind off useless because we put image required in the request */
+			if($request->hasFile('image')){
+				/* this code is for giving a unique name to the image, and putting this image
+				in the specified directory */
+			    $file = $request->file('image');
+			    $file_name = time().'.'.$file->getClientOriginalExtension();
+			    $file->move(public_path('/uploads/photo'),$file_name);
 
+			}
+			else{
+			    $file_name="userDefault.png";
+			}
+			// $actualite = Actualite::find($id);
+			$actualite->titre = $request->get('titre');
+			$actualite->resume = $request->get('resume');
+			$actualite->contenu = $request->get('contenu');
+			$actualite->image = '/uploads/photo/'.$file_name;
+			$actualite->save();
+
+			return redirect()->route('actualites.index')-> with('success', 'l\' actualité a été mise à jour ');
 		}
-		else{
-		    $file_name="userDefault.png";
-		}
-		// $actualite = Actualite::find($id);
-		$actualite->titre = $request->get('titre');
-		$actualite->resume = $request->get('resume');
-		$actualite->contenu = $request->get('contenu');
-		$actualite->image = '/uploads/photo/'.$file_name;
-		$actualite->save();
-
-		return redirect()->route('actualites.index')-> with('success', 'l\' actualité a été mise à jour ');
-
 	}
 
 	/**

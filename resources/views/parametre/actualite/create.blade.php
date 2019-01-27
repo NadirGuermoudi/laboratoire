@@ -27,7 +27,7 @@
 							<label class="col-md-3 control-label"> Contenu (*) </label>
 							<div class="col-md-9 inputGroupContainer">
 								<div style="width: 70%">
-									<textarea name="contenu" class="form-control" placeholder="contenu (HTML)" type="text"></textarea>
+									<textarea name="contenu" class="form-control" rows="10" placeholder="contenu (HTML)" type="text"></textarea>
 								</div>
 							</div>
 						</div>

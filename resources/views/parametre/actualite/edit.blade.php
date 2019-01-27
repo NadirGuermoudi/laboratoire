@@ -56,7 +56,7 @@
 								<label class="col-xs-3 control-label"> Contenu (*) </label>
 								<div class="col-xs-9 inputGroupContainer">
 									<div style="width: 70%">
-										<textarea name="contenu" class="form-control" type="text">{{$actualite->contenu}}</textarea>
+										<textarea name="contenu" class="form-control" rows="10" type="text">{{$actualite->contenu}}</textarea>
 									</div>
 								</div>
 							</div>

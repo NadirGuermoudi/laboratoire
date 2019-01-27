@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Input;
 |
 */
 //frontoffice
+// nadir
+Route::get('front/apropos', 'front\AproposController@index')->name('front.apropos');
+//fin nadir
 /* routes faits par ibrahim sebbane */
 
 Route::get('/front/projets', [
@@ -77,6 +80,9 @@ Route::get('/login', function () {
 });
 
 //nouv
+
+Route::get('apropos', 'ParametreController@apropos')->name('parametre.apropos');
+Route::post('apropos', 'ParametreController@storeApropos');
 
 Route::get('home', 'StatistiqueController@index')->name('home');
 
