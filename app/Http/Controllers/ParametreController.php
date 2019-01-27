@@ -28,7 +28,7 @@ class ParametreController extends Controller
 	public function store(Request $request)
 	{
 		// $labo = new Parametre();
-		$labo =  Parametre::find('1');
+		$labo =  Parametre::findOrNew('1');
 
 		if($request->hasFile('logo')){
 			$file = $request->file('logo');
@@ -37,10 +37,16 @@ class ParametreController extends Controller
 			$labo->logo = '/uploads/photo/'.$file_name;
 		}
 		$labo->nom = $request->input('nom');
+		$labo->telephone = $request->input('telephone');
+		$labo->adress = $request->input('adress');
+		$labo->email = $request->input('email');
+		$labo->facebook = $request->input('facebook');
+		$labo->google = $request->input('google');
+		$labo->twitter = $request->input('twitter');
+		$labo->youtube = $request->input('youtube');
 
 		$labo->save();
 
-		return redirect('dashboard');
-
+		return redirect(route('parametre.index'));
 	}
 }
