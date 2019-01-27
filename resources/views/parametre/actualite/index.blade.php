@@ -40,9 +40,11 @@
 				@include('parametre/actualite/actualites')
 			</div>
 
+			@if(Auth::user()->role->nom == 'admin')
 			<div class="tab-pane" id="ajouter">
 				@include('parametre/actualite/create')
 			</div>
+			@endif
 
 		</div><!-- /.tab-content -->
 
