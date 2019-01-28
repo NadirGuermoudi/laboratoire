@@ -57,6 +57,7 @@ class ProjetController extends Controller
                 $data = Projet::where('intitule','LIKE','%'.$query.'%')->
                 orWhere('resume','LIKE','%'.$query.'%')
                     ->orWhere('type','LIKE','%'.$query.'%')
+                    ->orWhere('partenaires','LIKE','%'.$query.'%')
                     ->get();
 
             } else {
