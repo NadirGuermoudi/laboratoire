@@ -29,11 +29,13 @@ class ArticlesController extends Controller
         $labo =  Parametre::find('1');
         $article = Article::find($id);
         $membres = Article::find($id)->users()->orderBy('name')->get();
+        $contacts = Article::find($id)->contacts()->orderBy('nom')->get();
 
 
         return view('front/articles/articlesDetails')->with([
             'article' => $article,
             'labo'=>$labo,
+            'contacts'=>$contacts,
             'membres'=>$membres
         ]);;
     }
