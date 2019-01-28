@@ -3,6 +3,14 @@
 
 
 @section('content')
+
+<?php $balise = generateRandomString(); ?>
+<style type="text/css">
+    {!! $balise !!}:before {
+        content : "@";
+    }
+</style>
+
 <div class="row">
 	<div class="col-12">
 		<div class="section-title text-center">
@@ -89,7 +97,8 @@
 		<div class="contact-box text-center">
 			<i class="ti-email theme-color"></i>
 			<h5 class="uppercase mt-20">Email</h5>
-			<p class="mt-20">{{ $labo->email }}</p>
+			{{-- <p class="mt-20">{{ $labo->email }}</p> --}}
+			<p class="mt-20">{!! str_replace('@', '<'.$balise.'>',$labo->email) !!}</p>
 		</div>
 	</div>
 </div>

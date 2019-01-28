@@ -29,7 +29,7 @@ function createBarThesesThesard(){
 			options:{
 				title:{
 					display:true,
-					text:'Théses et Thésards par années',
+					text:'Théses par années',
 					fontSize:25
 				},
 				legend:{

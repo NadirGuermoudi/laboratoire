@@ -20,7 +20,7 @@
 		<br>
 
 		<div class="row">
-			{!! $labo->apropos !!}
+			<p>{!! $labo->apropos !!}</p>
 		</div>
 	</div>
 @endsection

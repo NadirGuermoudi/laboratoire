@@ -23,7 +23,7 @@ class CreateContactsTable extends Migration
             $table->string('ville',50);
             $table->string('adresse')->nullable();
             $table->string('email')->nullable();
-            $table->string('telephone',10)->nullable();
+            $table->string('telephone',50)->nullable();
             $table->timestamps();
 
             $table->unique('nom', 'prenom');

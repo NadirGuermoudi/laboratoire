@@ -122,8 +122,7 @@ class ActualitesController extends Controller
 		if(Auth::user()->role->nom == 'admin'){
 			$request->validate([
 				'titre' => 'required',
-				'image' => 'required',
-				'resume' => 'required',
+				'resume' => 'required'
 			]);
 
 			/* This test is kind off useless because we put image required in the request */

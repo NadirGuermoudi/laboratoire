@@ -50,6 +50,13 @@
 
         <!-- Responsive -->
         <link rel="stylesheet" type="text/css" href="{{asset('css/responsive.css')}}" />
+
+        <?php $balise = generateRandomString(); ?>
+        <style type="text/css">
+            {!! $balise !!}:before {
+                content : "@";
+            }
+        </style>
     </head>
 
     <body>
