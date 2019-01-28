@@ -62,7 +62,7 @@ class RechercheController extends Controller
                 $nbrResultatTrouver += $theses->count();
             }
             if ($p != null) {
-                $projets = Projet::where('intitule', 'LIKE', '%' . $q . '%')->orWhere('resume', 'LIKE', '%' . $q . '%')->orWhere('type', 'LIKE', '%' . $q . '%')->get();
+                $projets = Projet::where('intitule', 'LIKE', '%' . $q . '%')->orWhere('partenaires','LIKE','%'.$q.'%')->orWhere('resume', 'LIKE', '%' . $q . '%')->orWhere('type', 'LIKE', '%' . $q . '%')->get();
                 $nbrResultatTrouver += $projets->count();
             }
             if ($e != null) {
