@@ -42,21 +42,17 @@ class MaterialsController extends Controller
 
 	public function borrowed(){
 		$labo = Parametre::find('1');
-		if(Auth::user()->role->nom == 'admin'){
-			$materials = DB::select("
-				SELECT m.id AS id, category, numero, CONCAT(u.name, ' ',u.prenom) AS par, DATE_FORMAT(date_rendre, '%d/%m/%Y') date_rendre, DATEDIFF(date_rendre, NOW()) AS jours_restants
-				FROM materials m, users u, user_material um
-				WHERE um.date_rendement IS NULL AND u.id = um.user_id AND m.id = um.material_id
-				UNION 
-				SELECT m.id AS id, category, numero, e.achronymes AS par, DATE_FORMAT(date_rendre, '%d/%m/%Y') date_rendre, DATEDIFF(date_rendre, NOW()) AS jours_restants
-				FROM materials m, equipes e, equipe_material em 
-				WHERE em.date_rendement IS NULL AND e.id = em.equipe_id AND m.id = em.material_id
-				");
+		$materials = DB::select("
+			SELECT m.id AS id, category, numero, CONCAT(u.name, ' ',u.prenom) AS par, DATE_FORMAT(date_rendre, '%d/%m/%Y') date_rendre, DATEDIFF(date_rendre, NOW()) AS jours_restants
+			FROM materials m, users u, user_material um
+			WHERE um.date_rendement IS NULL AND u.id = um.user_id AND m.id = um.material_id
+			UNION 
+			SELECT m.id AS id, category, numero, e.achronymes AS par, DATE_FORMAT(date_rendre, '%d/%m/%Y') date_rendre, DATEDIFF(date_rendre, NOW()) AS jours_restants
+			FROM materials m, equipes e, equipe_material em 
+			WHERE em.date_rendement IS NULL AND e.id = em.equipe_id AND m.id = em.material_id
+			");
 
-			return view('material/borrowed', compact('labo', 'materials'));
-		}else{
-			return view('errors.403' ,compact('labo'));
-		}
+		return view('material/borrowed', compact('labo', 'materials'));
 	}
 
 	public function borrow(){

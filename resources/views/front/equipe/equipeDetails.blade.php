@@ -7,6 +7,14 @@
 @stop
 
 @section('content')
+
+    <?php $balise = generateRandomString(); ?>
+    <style type="text/css">
+        {!! $balise !!}:before {
+            content : "@";
+        }
+    </style>
+
     <div class="col-12">
         <div class="container">
             <div class="row">
@@ -25,7 +33,7 @@
                     </div>
                 </div>
                 <div class="col-12 text-center">
-                    <img class="border-dark" src="{{asset($equipe->photo)}}">
+                    <img class="border-dark" style ="width: 100%;height: 250px;" src="{{asset($equipe->photo)}}">
                 </div>
                 @endif
                 <div class="col-12" style="height: 50px"></div>
@@ -62,7 +70,8 @@
                                                 </div>
 
                                                 <div class="team-contact">
-                                                    <span class="email">{{$membre->email}}</span>
+                                                    {{-- <span class="email">{{$membre->email}}</span> --}}
+                                                    <span class="email">{!! str_replace('@', '<'.$balise.'>',$membre->email) !!}</span>
                                                 </div>
 
                                             </div>

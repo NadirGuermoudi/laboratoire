@@ -19,7 +19,7 @@
 	  <div class="container">
 		  <div class="row">
 				<div class="box-header col-xs-12">
-					<h3 class="box-title">Liste des matériaux</h3>
+					<h3 class="box-title">Liste des matériaux empruntés</h3>
 				</div>
 		  </div>
 
