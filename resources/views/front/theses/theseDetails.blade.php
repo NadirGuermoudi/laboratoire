@@ -3,6 +3,13 @@
 
 
 @section('content')
+    <?php $balise = generateRandomString(); ?>
+    <style type="text/css">
+        {!! $balise !!}:before {
+            content : "@";
+        }
+    </style>
+    
     <div class="col-12">
         <div class="col-12">
             <h3 class="theme-color text-center" style="padding-bottom: 30px;">Details De La These</h3>
@@ -19,7 +26,8 @@
                     </div>
                     <div class="col-12">
                         <a href="{{url('front/membres/'.$these->user_id.'/details')}}">{{$these->user->name}} {{$these->user->prenom}}</a><br>
-                        <span><strong>{{$these->user->email}}</strong></span>
+                        {{-- <span><strong>{{$these->user->email}}</strong></span> --}}
+                        <span><strong>{!! str_replace('@', '<'.$balise.'>',$these->user->email) !!}</strong></span>
                     </div>
                 </div>
             </div>

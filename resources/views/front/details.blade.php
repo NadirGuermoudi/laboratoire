@@ -60,7 +60,7 @@
 
                 <div class="col-md-9">
                   <p class="text-muted">
-                    {{$actualite->contenu}}
+                    {!!$actualite->contenu!!}
                   </p>
 
                 </div>
