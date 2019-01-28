@@ -72,7 +72,7 @@ class RechercheController extends Controller
         } else {
             $actu = Actualite::where('titre', 'LIKE', '%' . $q . '%')->orWhere('resume', 'LIKE', '%' . $q . '%')->orWhere('contenu', 'LIKE', '%' . $q . '%')->get();
             $theses = These::where('titre', 'LIKE', '%' . $q . '%')->orWhere('sujet', 'LIKE', '%' . $q . '%')->get();
-            $projets = Projet::where('intitule', 'LIKE', '%' . $q . '%')->orWhere('resume', 'LIKE', '%' . $q . '%')->orWhere('type', 'LIKE', '%' . $q . '%')->get();
+            $projets = Projet::where('intitule', 'LIKE', '%' . $q . '%')->orWhere('partenaires','LIKE','%'.$q.'%')->orWhere('resume', 'LIKE', '%' . $q . '%')->orWhere('type', 'LIKE', '%' . $q . '%')->get();
             $equipes = Equipe::where('intitule', 'LIKE', '%' . $q . '%')->orWhere('resume', 'LIKE', '%' . $q . '%')->orWhere('achronymes', 'LIKE', '%' . $q . '%')->get();
             $membres = User::where('name', 'LIKE', '%' . $q . '%')->orWhere('prenom', 'LIKE', '%' . $q . '%')->orWhere('email', 'LIKE', '%' . $q . '%')->get();
             $articles = Article::where('titre', 'LIKE', '%' . $q . '%')->orWhere('resume', 'LIKE', '%' . $q . '%')->orWhere('type', 'LIKE', '%' . $q . '%')->get();
